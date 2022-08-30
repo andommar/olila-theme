@@ -1,0 +1,16 @@
+{
+  "name": "olila-theme",
+  "version": "1.0.0",
+  "description": "[![Generic badge](https://img.shields.io/badge/course%20available%3F-yes-green.svg)](https://shields.io/)",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "build": "tailwindcss -i ./src/tailwindcss.css -o ./assets/application.css",
+    "watch": "tailwindcss -i ./src/tailwindcss.css -o ./assets/application.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.1.8"
+  }
+}
