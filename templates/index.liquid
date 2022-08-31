@@ -1,4 +1,4 @@
-{% for product in collections.frontpage.products limit:4 %}
+<!-- {% for product in collections.frontpage.products limit:4 %}
   <div>
     <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
     {{ product.price | money }}
@@ -7,4 +7,25 @@
       <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
     </a>
   </div>
-{% endfor %}
+{% endfor %} -->
+
+<!-- Hero section -->
+<section id="hero">
+  <div class="flex items-center bg-clr_primary relative max-h-[65vh] md:static md:container md:mx-auto md:max-h-[75vh] overflow-y-hidden">
+    <!-- Left item -->
+    <div 
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+      flex flex-col items-center justify-center md:inset-0 md:translate-x-0 md:translate-y-0 md:static md:w-1/2 ">
+
+      <h1 class="uppercase whitespace-nowrap text-clr_primary_variaton font-bold text-3xl -my-4 md:-my-6 md:text-5xl">MID SEASON 21</h1>
+      <h1 class="uppercase whitespace-nowrap text-clr_primary_variaton font-light text-3xl md:text-5xl">NY KOLLEKTION</h1>
+      <div class="my-3">
+        <a href="#" class="uppercase p-3 px-6 text-clr_primary font-bold bg-white rounded-full">Shop nu</a>
+      </div>
+    </div>
+    <!-- Right item -->
+    <div class="md:w-1/2">
+      <img class="object-cover w-full" src="https://cdn.shopify.com/s/files/1/0265/6521/4231/files/MarMar-AW22-STL-60_3_680x980_crop_center.jpg?v=1661790734" alt="">
+    </div>
+  </div>
+</section>

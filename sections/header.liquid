@@ -1,0 +1,69 @@
+<div class="md:container md:mx-auto">
+    <!-- Flex container -->
+    <div class="flex items-center justify-center bg-clr_primary p-3 md:justify-between md:px-16 md:bg-clr_header_bg">
+        <!-- Top message item 1 -->
+        <div>
+            <p class="font-bold text-sm uppercase text-white md:text-black">
+                Stort udvalg af danmarks 
+                <span class="text-clr_primary_variaton font-black">favoritmærker</span>
+            </p>
+        </div>
+        <div class="hidden md:block">
+            <p class="font-bold text-sm uppercase">
+                Stort udvalg af danmarks 
+                <span class="text-clr_primary_variaton font-black">favoritmærker</span>
+            </p>
+        </div>
+        <div class="hidden md:block">
+            <p class="font-bold text-sm uppercase">
+                Stort udvalg af danmarks 
+                <span class="text-clr_primary_variaton font-black">favoritmærker</span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Navbar -->
+<nav class="relative container mx-auto">
+    <!-- Flex container -->
+    <div class="flex items-center justify-between md:px-16 md:p-4">
+        <div class="hidden space-x-6 md:block">
+            <a href="#" class="text-regular uppercase hover:font-bold">Nyheder</a>
+            <a href="#" class="text-regular uppercase hover:font-bold">UDSALG</a>
+            <a href="#" class="text-regular uppercase hover:font-bold">TØJ & SKO</a>
+            <a href="#" class="text-regular uppercase hover:font-bold">LEGETØJ</a>
+            <a href="#" class="text-regular uppercase hover:font-bold">UDSTYR</a>
+        </div>
+        <div class="md:hidden">
+            {% render 'icon-heart' %}
+        </div>
+
+
+        <!-- Logo -->
+        <div>
+            <h4>Olila</h4>
+        </div>
+
+        <!-- Right icons -->
+        <div class="flex items-center justify-around md:justify-between space-x-8 p-3">
+
+
+            <div class="hidden md:block">
+                {% render 'icon-user' %}
+            </div>
+            <div class="hidden md:block">
+                {% render 'icon-heart' %}
+            </div>
+            <div>
+                {% render 'icon-cart' %}
+            </div>
+            <div class="md:hidden">
+                {% render 'icon-search' %}
+            </div>
+
+        </div>
+
+    </div>
+
+
+</nav>
