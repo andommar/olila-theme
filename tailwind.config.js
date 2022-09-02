@@ -22,7 +22,10 @@ module.exports = {
         clr_grey_bg:'#E5E5E5',
         clr_navigation: '#596064',
         clr_header_bg: '#F4F4F4',
-        clr_font_header: '#59606'
+        clr_font_header: '#59606',
+        clr_gold: '#EAB787',
+        clr_blue_ocean_grad1: '#295760',
+        clr_blue_ocean_grad2: '#638990'
       },
       fontFamily: {
         montserrat: ['Montserrat']
@@ -32,6 +35,7 @@ module.exports = {
         'sm': '9px',
         'tiny': '10px',
         'regular': '12px',
+        'normal': '14px',
         'base': '1rem',
         'lg': '1.125rem',
         'xl': '1.25rem',
@@ -44,5 +48,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('tw-elements/dist/plugin')
+  ],
 }
