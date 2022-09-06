@@ -29,7 +29,41 @@
     <!-- Flex container -->
     <div class="flex items-center justify-between px-6 md:px-16 md:p-4">
         <div class="hidden space-x-6 md:flex md:flex-row">
-            <div class="group">
+            {% for link in section.settings.menu.links %}
+                <!-- Mega menu -->
+                <div class="group">
+                        {% if link.links == blank %} 
+                            <a href="#" class="text-regular uppercase hover:font-bold"> {{ link.title }} </a>
+                        {% else %}
+                            <a href="{{ link.url }}" class="text-regular uppercase hover:font-bold"> {{ link.title }} </a>
+                            <!-- {% render 'icon-dropdown-arrow' %} -->
+                        {% endif %}
+                    <div class="hidden group-hover:flex flex-col absolute left-0 p-10 w-full bg-clr_dropdown text-black duration-300">
+                        <div class="grid grid-cols-2 gap-5 md:grid-cols-4">
+                            <div class="flex flex-col">
+                                <h4 class="uppercase mb-4 text-base text-white font-bold">Category 1</h4>
+                                {% for childlink in link.links %}
+                                    <a href="{{ childlink.url }}" class="hover:underline text-white text-regular">{{ childlink.title }}</a>
+                                {% endfor %}
+                            </div>
+                            <div class="flex flex-col">
+                                <h4 class="uppercase mb-4 text-base text-white font-bold">Category 2</h4>
+                                <a href="#" class="hover:underline text-white text-regular">Accessories</a>
+                            </div>
+                            <div class="flex flex-col">
+                                <h4 class="uppercase mb-4 text-base text-white font-bold">Category 3</h4>
+                                <a href="#" class="hover:underline text-white text-regular">Accessories</a>
+                            </div>
+                            <div class="flex flex-col">
+                                <h4 class="uppercase mb-4 text-base text-white font-bold">Category 4</h4>
+                                <a href="#" class="hover:underline text-white text-regular">Accessories</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <!-- Mega menu 1 -->
+            <!-- <div class="group">
                 <a href="#" class="text-regular uppercase hover:font-bold">Nyheder</a>
                 <div class="hidden group-hover:flex flex-col absolute left-0 p-10 w-full bg-clr_dropdown text-black duration-300">
                     <div class="grid grid-cols-2 gap-5 md:grid-cols-4">
@@ -51,8 +85,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="group">
+            </div> -->
+            <!-- Mega menu 2  -->
+            <!-- <div class="group">
                 <a href="#" class="text-regular uppercase hover:font-bold">UDSALG</a>
                 <div class="hidden group-hover:flex flex-col absolute left-0 p-10 w-full bg-clr_dropdown text-black duration-300">
                     <div class="grid grid-cols-2 gap-5 md:grid-cols-4">
@@ -74,12 +109,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!-- <a href="#" class="text-regular uppercase hover:font-bold">UDSALG</a>
             <a href="#" class="text-regular uppercase hover:font-bold">TØJ & SKO</a>
             <a href="#" class="text-regular uppercase hover:font-bold">LEGETØJ</a>
             <a href="#" class="text-regular uppercase hover:font-bold">UDSTYR</a> -->
         </div>
+
+
+        <!-- Burger menu mobile -->
         <div id="menu-btn" class="md:hidden">
             {% render 'icon-hamburger' %}
         </div>
@@ -88,14 +126,25 @@
         </div>
         <!-- Logo -->
         <div>
-            <h4>Olila</h4>
+            <h4>{{ shop.name }}</h4>
         </div>
 
         <!-- Right icons -->
         <div class="flex items-center justify-around md:justify-between space-x-8 p-3">
-            <div class="hidden md:block">
-                {% render 'icon-user' %}
-            </div>
+            {% if shop.customer_accounts_enabled %}
+                {% if customer %}
+                    <div class="hidden md:block">
+                        <a href="{{  routes.account_url }}">
+                            {% render 'icon-user' %}
+                        </a>
+                    </div>
+                {% else %}
+                    <a href="{{  routes.account_login_url  }}">
+                        {% render 'icon-user' %}
+                    </a>
+                {% endif %}
+            {% endif %}
+
             <div class="hidden md:block">
                 {% render 'icon-heart' %}
             </div>
@@ -108,45 +157,45 @@
         </div>
     </div>
 
-        <!-- Hamburger Icon-->
-        <!-- <button id="menu-btn" class="block hamburger md:hidden 
-        focus:outline-none">
-                <span class="hamburger-top"></span>
-                <span class="hamburger-middle"></span>
-                <span class="hamburger-bottom"></span>
-            </button>
-        </div> -->
+    <!-- Mobile menu -->
+    <div class="md:hidden">
+        <div id="menu" 
+            class="z-10 absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 
+            font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+            {% for link in section.settings.menu.links %}
+                <div class="group flex flex-col items-center">
+                    <div class="flex flex-col items-center mobile-link">
+                        {% if link.links == blank %} 
+                            <a href="{{ link.url }}" class="text-base uppercase hover:font-bold"> {{ link.title }} </a>
+                        {% else %}
+                        <button class="text-base cursor-pointer text-center uppercase hover:font-bold hover:text-clr_navigation "> {{ link.title }} </button>
+                        <div class="hidden mobile-link-block flex-col items-center space-y-3 my-2 ">
+                            {% for childlink in link.links %}
+                                <a href="{{ childlink.url }}" class="font-normal hover:text-clr_primary_variaton text-regular">{{ childlink.title }}</a>                                    
+                            {% endfor %}
+                        </div>
+                            <!-- {% render 'icon-dropdown-arrow' %} -->
 
-        <!-- Mobile menu -->
-        <div class="md:hidden">
-            <div id="menu" 
-                class="z-10 absolute flex-col items-center hidden self-end py-8 mt-10 space-y-6 
-                font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
-                <div class="group flex flex-col items-center">
-                    <button class="mobile-link text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">UDSALG</button>
-                    <div class="hidden mobile-link-block flex-col items-center space-y-3 my-2 ">
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
+                        {% endif %}
                     </div>
                 </div>
-                <div class="group flex flex-col items-center">
-                    <button class=" mobile-link text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">UDSALG</button>
-                    <div class="hidden mobile-link-block flex-col items-center space-y-3 my-2 ">
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                        <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                    </div>
+            {% endfor %}
+
+            <!-- <div class="group flex flex-col items-center">
+                <button class=" mobile-link text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">UDSALG</button>
+                <div class="hidden mobile-link-block flex-col items-center space-y-3 my-2 ">
+                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
+                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
+                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
+                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
+                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
                 </div>
-                <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">TØJ & SKO</a>
-                <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">LEGETØJ</a>
-                <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">UDSTYR</a>
             </div>
+            <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">TØJ & SKO</a>
+            <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">LEGETØJ</a>
+            <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">UDSTYR</a> -->
         </div>
+    </div>
 </nav>
 
 <script>
@@ -159,16 +208,6 @@ btn.addEventListener('click', ()=>{
     nav.classList.toggle('hidden')
 })
 
-// const dropbtn = document.getElementById('dropdown-btn')
-// const mblMenu = document.getElementById('dropdown-mbl')
-
-// dropbtn.addEventListener('click', () => {
-//     console.log('Hello')
-//     mblMenu.classList.toggle('hidden')
-//     mblMenu.classList.toggle('flex')
-//     mblMenu.classList.toggle('block')
-// })
-
 const test = document.getElementsByClassName('mobile-link')
 
 for (let i = 0; i< test.length; i++){
@@ -180,3 +219,17 @@ for (let i = 0; i< test.length; i++){
     })
 }
 </script>
+
+{% schema %}
+{
+    "name": "Header",
+    "settings": [
+        {
+            "type": "link_list",
+            "id": "menu",
+            "default": "main-menu",
+            "label": "Heading navigation menu "
+        }
+    ]
+}
+{% endschema %}
