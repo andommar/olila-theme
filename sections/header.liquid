@@ -62,58 +62,7 @@
                     </div>
                 </div>
             {% endfor %}
-            <!-- Mega menu 1 -->
-            <!-- <div class="group">
-                <a href="#" class="text-regular uppercase hover:font-bold">Nyheder</a>
-                <div class="hidden group-hover:flex flex-col absolute left-0 p-10 w-full bg-clr_dropdown text-black duration-300">
-                    <div class="grid grid-cols-2 gap-5 md:grid-cols-4">
-                        <div class="flex flex-col">
-                            <h4 class="uppercase mb-4 text-base text-white font-bold">Category 1</h4>
-                            <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                        </div>
-                        <div class="flex flex-col">
-                            <h4 class="uppercase mb-4 text-base text-white font-bold">Category 2</h4>
-                            <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                        </div>
-                        <div class="flex flex-col">
-                            <h4 class="uppercase mb-4 text-base text-white font-bold">Category 3</h4>
-                            <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                        </div>
-                        <div class="flex flex-col">
-                            <h4 class="uppercase mb-4 text-base text-white font-bold">Category 4</h4>
-                            <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- Mega menu 2  -->
-            <!-- <div class="group">
-                <a href="#" class="text-regular uppercase hover:font-bold">UDSALG</a>
-                <div class="hidden group-hover:flex flex-col absolute left-0 p-10 w-full bg-clr_dropdown text-black duration-300">
-                    <div class="grid grid-cols-2 gap-5 md:grid-cols-4">
-                        <div class="flex flex-col">
-                            <h4 class="uppercase mb-4 text-base text-white font-bold">Category 1</h4>
-                            <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                        </div>
-                        <div class="flex flex-col">
-                            <h4 class="uppercase mb-4 text-base text-white font-bold">Category 2</h4>
-                            <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                        </div>
-                        <div class="flex flex-col">
-                            <h4 class="uppercase mb-4 text-base text-white font-bold">Category 3</h4>
-                            <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                        </div>
-                        <div class="flex flex-col">
-                            <h4 class="uppercase mb-4 text-base text-white font-bold">Category 4</h4>
-                            <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!-- <a href="#" class="text-regular uppercase hover:font-bold">UDSALG</a>
-            <a href="#" class="text-regular uppercase hover:font-bold">TØJ & SKO</a>
-            <a href="#" class="text-regular uppercase hover:font-bold">LEGETØJ</a>
-            <a href="#" class="text-regular uppercase hover:font-bold">UDSTYR</a> -->
+
         </div>
 
 
@@ -149,7 +98,9 @@
                 {% render 'icon-heart' %}
             </div>
             <div>
-                {% render 'icon-cart' %}
+                <a href="{{ routes.cart_url }}">
+                    {% render 'icon-cart' %}
+                </a>
             </div>
             <div class="md:hidden">
                 {% render 'icon-search' %}
@@ -180,20 +131,6 @@
                     </div>
                 </div>
             {% endfor %}
-
-            <!-- <div class="group flex flex-col items-center">
-                <button class=" mobile-link text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">UDSALG</button>
-                <div class="hidden mobile-link-block flex-col items-center space-y-3 my-2 ">
-                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                    <a href="#" class="hover:text-clr_primary_variaton text-base">Accessories</a>
-                </div>
-            </div>
-            <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">TØJ & SKO</a>
-            <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">LEGETØJ</a>
-            <a href="#" class="text-xl uppercase hover:font-bold hover:text-clr_primary_variaton">UDSTYR</a> -->
         </div>
     </div>
 </nav>
