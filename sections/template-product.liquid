@@ -101,7 +101,7 @@
                                 <p class="text-gray-700">{{ product.description }}</p>
                             </div>
                         {% when 'checkout_buttons' %}
-                            <div class="my-3">
+                            <div class="my-3" id="button-{{ section.id }}">
                                 <button type="submit" name="add" class="w-full px-6 py-4 text-white hover:bg-gray-700 rounded-sm my-2
                                     {% if selected_variant.available == false %}
                                         bg-gray-600 
@@ -212,16 +212,29 @@
             fetch(`${this.dataset.url}?variant=${this.currentVariant.id}&section_id=${this.dataset.section}`)
             .then((response)=> response.text())
             .then(responseText => {
-                const id = `price-${this.dataset.section}`
+                const id_price = `price-${this.dataset.section}`
+                const id_button = `button-${this.dataset.section}`
+
                 const html = new DOMParser().parseFromString(responseText, 'text/html')
 
-                const oldPrice = document.getElementById(id)
-                const newPrice = html.getElementById(id)
+                const oldPrice = document.getElementById(id_price)
+                const newPrice = html.getElementById(id_price)
+
+                const oldButton = document.getElementById(id_button)
+                const newButton = html.getElementById(id_button)
 
                 if (oldPrice && newPrice ) {
                     oldPrice.innerHTML = newPrice.innerHTML
                 }
+                if (oldButton && newButton ) {
+                    oldButton.innerHTML = newButton.innerHTML
+                }
+
             })
+        }
+
+        updateButton(){
+
         }
     }
     customElements.define('variant-selector', VariantSelector)
