@@ -1,0 +1,334 @@
+    <!-- Section container -->
+<div class="md:container mx-auto md:p-3 md:px-6 bg-clr_dropdown ">
+    <div class="hidden md:flex">
+        <div class="grid grid-cols-2 gap-11 text-white text-regular">
+            <div class="flex flex-col space-y-6">
+                <div class="item">
+                    <h3 class="text-2xl">DU FINDER OS HER</h3>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="col-item flex flex-col">
+                            <p class="font-bold">Olila Esbjerg</p>
+                            <p>Kongensgade 94, 6700 Esbjerg</p>
+                            <p>Telefon: 2575 5071</p>
+                            <p>info@olila.dk</p>
+                            <p>CVR: 4286943</p>
+                        </div>
+                        <div class="col-item">
+                            <p class="font-bold">Åbningstider</p>
+                            <p>Mandag – torsdag kl. 10.00 – 17.30</p>
+                            <p>Fredagkl. 10.00 – 18.00</p>
+                            <p>Lørdagkl. 10.00 – 15.00</p>
+                        </div>
+                        <div class="col-item">
+                            <p>Søndag: Lukket(Eller efter aftale)</p>
+                            <p>Specielle åbningstider 2021</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <h3 class="text-2xl">RABATKODER & GAVEKORT</h3>
+                    <ul>
+                        <li>Gavekort</li>
+                        <li>Spørgsmål til gavekort</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3 class="text-2xl">OM OLILA</h3>
+                    <ul>
+                        <li>Hvem er vi</li>
+                        <li>Blog</li>
+                        <li>Job</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex flex-col space-y-6">
+                <div class="item">
+                    <h3 class="text-2xl">HURTIG LEVERING</h3>
+                    <ul>
+                        <li>Gratis fragt ved køb over 399 kr. </li>
+                        <li>Dag til dag leverling</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3 class="text-2xl">HJÆLP & KONTAKTINFORMATION</h3>
+                    <ul>
+                        <li>Gavekort</li>
+                        <li>Spørgsmål til gavekort</li>
+                        <li>14 dages returret</li>
+                        <li>Kundeservice alle dage fra 10.00-18.00</li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3 class="text-2xl">BETALING- & FRAGTMULIGHEDER</h3>
+                    {% if shop.enabled_payment_types != empty %}
+                        {% for payment in shop.enabled_payment_types %}
+                            {{ payment | payment_type_svg_tag: class: 'h-[64px] w-[64px]' }}
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="md:hidden">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item bg-clr_dropdown ">
+                <h2 class="accordion-header mb-0" id="headingOne">
+                <button class="
+                    uppercase
+                    accordion-button
+                    relative
+                    flex
+                    items-center
+                    w-full
+                    py-4
+                    px-5
+                    text-base text-white
+                    bg-clr_dropdown
+                    rounded-none
+                    transition
+                    focus:outline-none
+                    whitespace-nowrap
+                " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                    ÅBNINGSTIDER / DU FINDER OS HER
+                </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show bg-clr_dropdown" aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample">
+                    <div class="accordion-body py-4 px-5 text-white">
+                        <div class="flex flex-col space-y-3">
+                            <div>
+                                <p class="font-bold">Olila Esbjerg</p>
+                                <p>Kongensgade 94, 6700 Esbjerg</p>
+                                <p>Telefon: 2575 5071</p>
+                                <p>info@olila.dk</p>
+                                <p>CVR: 42869643</p>
+                            </div>
+                            <div>
+                                <p class="font-bold">Åbningstider</p>
+                                <p>Mandag – torsdag kl. 10.00 – 17.30</p>
+                                <p>Fredag kl. 10.00 – 18.00</p>
+                                <p>Lørdag kl. 10.00 – 15.00</p>
+                            </div>
+                            <div>
+                                <p>Søndag: Lukket</p>
+                                <p>Specielle åbningstider 2021</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="accordion-item bg-white">
+                <h2 class="accordion-header mb-0" id="headingTwo">
+                <button class="
+                    uppercase
+                    accordion-button
+                    relative
+                    flex
+                    items-center
+                    w-full
+                    py-4
+                    px-5
+                    text-base text-white
+                    bg-clr_dropdown
+                    rounded-none
+                    transition
+                    focus:outline-none
+                    whitespace-nowrap
+                " type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                    aria-controls="collapseTwo">
+                    Rabatkoder & Gavekort
+                </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse bg-clr_dropdown" aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample">
+                    <div class="accordion-body py-4 px-5 text-white">
+                        <div class="grid grid-rows-3">
+                            <p>Gavekort</p>
+                            <p>Indløs gavekort</p>
+                            <p>Spørgsmål til gavekort</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="accordion-item bg-white">
+                <h2 class="accordion-header mb-0" id="headingThree">
+                <button class="
+                    uppercase
+                    accordion-button
+                    relative
+                    flex
+                    items-center
+                    w-full
+                    py-4
+                    px-5
+                    text-base text-white
+                    bg-clr_dropdown
+                    rounded-none
+                    transition
+                    focus:outline-none
+                    whitespace-nowrap
+                " type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                    aria-controls="collapseThree">
+                    Om Olila
+                </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse bg-clr_dropdown" aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample">
+                    <div class="accordion-body py-4 px-5 text-white">
+                        <div class="grid grid-rows-3">
+                            <p>Hvem er vi</p>
+                            <p>Blog</p>
+                            <p>Job</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="accordion-item bg-white">
+                <h2 class="accordion-header mb-0" id="headingFour">
+                <button class="
+                    uppercase
+                    accordion-button
+                    relative
+                    flex
+                    items-center
+                    w-full
+                    py-4
+                    px-5
+                    text-base text-white
+                    bg-clr_dropdown
+                    rounded-none
+                    transition
+                    focus:outline-none
+                    whitespace-nowrap
+                " type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
+                    aria-controls="collapseFour">
+                    Hurting levering
+                </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse bg-clr_dropdown" aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample">
+                    <div class="accordion-body py-4 px-5 text-white">
+                        <div class="grid grid-rows-3">
+                            <p>Gratis fragt ved køb over 399 kr.</p>
+                            <p>Dag til dag leverling</p>
+                            <p>14 dages returret</p>
+                            <p>Kundeservice alle dage fra 10.00-18.00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="accordion-item bg-white">
+                <h2 class="accordion-header mb-0" id="headingFive">
+                <button class="
+                    uppercase
+                    accordion-button
+                    relative
+                    flex
+                    items-center
+                    w-full
+                    py-4
+                    px-5
+                    text-base text-white
+                    bg-clr_dropdown
+                    rounded-none
+                    transition
+                    focus:outline-none
+                    whitespace-nowrap
+                " type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                    aria-controls="collapseFive">
+                    HJÆLP & KONTAKTINFORMATION
+                </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse bg-clr_dropdown" aria-labelledby="headingFive"
+                data-bs-parent="#accordionExample">
+                    <div class="accordion-body py-4 px-5 text-white">
+                        <div class="grid grid-rows-3">
+                            <p>Min konto</p>
+                            <p>Handels- og leveringsbetingelser</p>
+                            <p>Sådan returnerer du</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="accordion-item bg-white border">
+                <h2 class="accordion-header mb-0" id="headingSix">
+                <button class="
+                uppercase
+                accordion-button
+                relative
+                flex
+                items-center
+                w-full
+                py-4
+                px-5
+                text-base text-white
+                bg-clr_dropdown
+                border-b
+                border-white
+                rounded-none
+                transition
+                focus:outline-none
+                whitespace-nowrap
+                " type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
+                    aria-controls="collapseSix">
+                    BETALING- & FRAGTMULIGHEDER
+                </button>
+                </h2>
+                <div id="collapseSix" class="accordion-collapse collapse text-white bg-clr_dropdown" aria-labelledby="headingSix"
+                data-bs-parent="#accordionExample">
+                <div class="accordion-body py-4 px-5 text-white">
+                    <div class="flex flex-row">
+                        {% if shop.enabled_payment_types != empty %}
+                            {% for payment in shop.enabled_payment_types %}
+                                {{ payment | payment_type_svg_tag: class: 'h-[64px] w-[64px]' }}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .accordion-button:not(.collapsed)::after{
+        background-image: {% render 'icon-cart' %} !important;
+    }
+</style>
+
+{% schema %}
+{
+    "name": "Contact information",
+    "settings": [
+       {
+        "type": "text",
+        "id": "text_title",
+        "label": "Text title",
+        "default": "Nyheder"
+       },
+      {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Collection"
+      },
+     {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color"
+     }
+    ],
+    "presets": [
+        {
+            "name": "Main page contact information"
+        }
+    ]
+}
+{% endschema %}

@@ -25,7 +25,8 @@ module.exports = {
         clr_font_header: '#59606',
         clr_gold: '#EAB787',
         clr_blue_ocean_grad1: '#295760',
-        clr_blue_ocean_grad2: '#638990'
+        clr_blue_ocean_grad2: '#638990',
+        clr_variant_dropdown: '#F1F1F1'
       },
       fontFamily: {
         montserrat: ['Montserrat']

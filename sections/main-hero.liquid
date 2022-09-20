@@ -1,0 +1,78 @@
+<!-- Hero section -->
+<div class="md:container md:mx-auto">
+    <div class="flex items-center hero-background relative max-h-[65vh] md:static md:container md:mx-auto md:max-h-[75vh] overflow-y-hidden">
+      <!-- Left item -->
+      <div 
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+        flex flex-col items-center justify-center md:inset-0 md:translate-x-0 md:translate-y-0 md:static md:w-1/2 ">
+
+        {% if section.settings.headline_top != blank %}
+            <h1 class="uppercase whitespace-nowrap text-clr_primary_variaton font-bold text-3xl -my-4 md:-my-6 md:text-5xl">{{ section.settings.headline_top }}</h1>
+        {% endif %}
+
+        {% if section.settings.headline_bottom != blank %}
+            <h1 class="uppercase whitespace-nowrap text-clr_primary_variaton font-light text-3xl md:text-5xl">{{ section.settings.headline_bottom }}</h1>
+        {% endif %}
+
+        <div class="my-3">
+          <a href="{{ section.settings.button_url }}" class="uppercase p-3 px-6 text-clr_primary font-bold bg-white rounded-full">{{section.settings.button_text}}</a>
+        </div>
+      </div>
+      <!-- Right item -->
+      <div class="md:w-1/2">
+        <img class="object-cover w-full" src="{{ section.settings.hero_image | img_url: 'large' }}" alt="">
+      </div>
+    </div>
+</div>
+
+<style>
+    .hero-background{
+        background-color: {{ section.settings.bg_hero_color }} !important;
+    }
+</style>
+{% schema %}
+    {
+        "name": "Template hero",
+        "settings": [
+            {
+                "type": "text",
+                "id": "headline_top",
+                "default": "Mid season 21",
+                "label": "Title 1"
+            },
+            {
+                "type": "text",
+                "id": "headline_bottom",
+                "default": "NY kollektion",
+                "label": "Title 2"
+            },
+           {
+                "type": "image_picker",
+                "id": "hero_image",
+                "label": "Hero image"
+           },
+            {
+                "type": "color",
+                "id": "bg_hero_color",
+                "label": "Background color",
+                "default": "#9a684b"
+            },
+           {
+            "type": "header",
+            "content": "Button",
+            "info": "Button settings"
+           },
+            {
+                "type": "url",
+                "id":"button_url",
+                "label": "Button link"
+            },
+            {
+                "type": "text",
+                "id": "button_text",
+                "default": "Shop nu",
+                "label": "Button text"
+            }
+        ]
+    }
+{% endschema %}

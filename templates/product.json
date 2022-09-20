@@ -17,10 +17,16 @@
                 "price",
                 "variant_selector",
                 "quantity",
-                "description",
-                "checkout_buttons"
+                "checkout_buttons",
+                "description"
             ]
         }
+        // "new-collection":{
+        //     "type": "main-collection"
+        // },
+        // "popular_products": {
+        //     "type": "main-populars"
+        // }
     },
     "order": ["template"]
 }

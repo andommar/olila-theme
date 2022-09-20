@@ -1,13 +1,32 @@
 {
   "sections": {
-    "featured-collection": {
-      "type": "featured-collection",
+    "template-hero":{
+      "type": "main-hero"
+    },
+    "categories":{
+      "type": "main-categories"
+    },
+    "new-collection":{
+      "type": "main-collection",
       "settings": {
-        "featured_collection": "all"
+        "main-collection": "all"
       }
+    },
+    "popular-collection":{
+      "type": "main-populars",
+      "settings": {
+        "main-populars": "all"
+      }
+    },
+    "template-contact-info":{
+      "type": "main-info"
     }
+    // "featured-collection": {
+    //   "type": "featured-collection",
+    //   "settings": {
+    //     "featured_collection": "all"
+    //   }
+    // }
   },
-  "order": [
-    "featured-collection"
-  ]
+  "order": ["template-hero","categories","new-collection","popular-collection","template-contact-info"]
 }

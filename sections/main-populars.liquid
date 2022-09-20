@@ -1,0 +1,134 @@
+<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+<!-- Container -->
+<div class="p-3 md px-6 pb-12  mx-auto flex flex-col md:items-center md:container bg-gradient-to-r from-clr_blue_ocean_grad2 to-clr_blue_ocean_grad1">
+    <div>
+        <!-- Section title -->
+        <div class="flex flex-row items-center justify-between">
+            <h3 class="uppercase my-3 font-bold nowrap text-lg text-white md:text-2xl">{{ section.settings.text_title }}</h3>
+            <a href="{{ section.settings.featured_collection.url }}" class="uppercase whitespace-nowrap text-regular font-bold underline text-white">See alle</a>
+        </div>
+
+        <!-- Products container -->
+        <div class="md:hidden">
+            <div class="swiper" id="section-swiper-{{ section.id }}">
+                <div class="swiper-wrapper my-6">
+                    {% for product in section.settings.featured_collection.products limit:section.settings.number_of_products_to_show %}
+                        <div class="swiper-slide">
+                            <div class="p-2 flex flex-col items-center justify-center space-y-3">
+                                <!-- Product image -->
+                                <img class="object-cover" src="{{ product.featured_image | img_url: '150x150'}}" alt="{{ product.title }}">
+                                <!-- Product description -->
+                                <div class="flex flex-col items-start justify-center">
+                                    <p class="font-bold text-normal text-white uppercase">{{ product.vendor }}</p>
+                                    <p class="font-light text-normal text-white uppercase">{{ product.title }}</p>
+                                    <p class="font-bold text-normal text-white">{{ product.price | money}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev" id="swiper-button-prev-{{ section.id }}"></div>
+                <div class="swiper-button-next" id="swiper-button-next-{{ section.id }}"></div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination" id="swiper-pagination-{{ section.id }}"></div>
+
+            </div>
+
+        </div>
+        <div class="hidden overflow-x-auto md:flex flex-row items-center justify-start space-x-6 md:space-y-0 md:justify-center">
+            {% for product in section.settings.featured_collection.products limit:section.settings.number_of_products_to_show %}
+                <!-- Product item -->
+                <div class="relative min-w-[132px]">
+                    <!-- Product image -->
+                    <img class="max-h-[200px] w-[200px] object-cover overflow-y-hidden" src={{ product.featured_image | img_url: 'large' }} alt="">
+                    <!-- Product description -->
+                    <div class="flex flex-col items-start justify-start">
+                        <p class="font-bold text-normal text-white uppercase">{{ product.vendor }}</p>
+                        <p class="font-light text-normal text-white uppercase">{{ product.title }}</p>
+                        <p class="font-bold text-normal text-white uppercase">{{ product.price | money}}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+<style>
+    #swiper-button-next-{{ section.id }}, #swiper-button-prev-{{ section.id }}{
+        color: black !important;
+    }
+    
+    #swiper-button-prev-{{ section.id }}.swiper-button-prev::after, #swiper-button-next-{{ section.id }}.swiper-button-next::after{
+        font-size: 20px !important;
+    }
+
+    #swiper-pagination-{{ section.id }}{
+        color:black;
+        bottom: 0 !important;
+    }
+
+
+    #swiper-pagination-{{ section.id }} .swiper-pagination-bullet-active{
+        background:white !important;
+    }
+</style>
+
+<script>
+    const swiper_populars = new Swiper('#section-swiper-{{ section.id }}', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '#swiper-pagination-{{ section.id }}',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '#swiper-button-next-{{ section.id }}',
+    prevEl: '#swiper-button-prev-{{ section.id }}',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+</script>
+
+{% schema %}
+    {
+        "name": "Popular products",
+        "settings": [
+           {
+            "type": "text",
+            "id": "text_title",
+            "label": "Text title",
+            "default": "Nyheder"
+           },
+          {
+            "type": "collection",
+            "id": "featured_collection",
+            "label": "Collection"
+          },
+         {
+            "type": "range",
+            "id": "number_of_products_to_show",
+            "label": "Number of products to show",
+            "min": 4,
+            "max": 10,
+            "default": 4
+         }
+        ],
+        "presets": [
+        {
+            "name": "Popular products"
+        }
+    ]
+    }
+{% endschema %}

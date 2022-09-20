@@ -3,75 +3,75 @@
 
 {% assign selected_variant = product.selected_or_first_available_variant %}
 
-<div class="max-w-6xl mx-auto my-8">
+<div class="max-w-6xl mx-auto container">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div class="product--medias">
             <div class="hidden md:block">
                 {% for media in product.media %}
-                    <div class="h-100 overflow-hidden p-2">
+                    <div class="h-72 overflow-hidden p-2">
                         {% render 'product-media', media: media %}
                     </div>
                 {% endfor %}
             </div>
             
             <div class="md:hidden">
-                <div class="swiper h-96">
-                    <div class="swiper-wrapper">
+                <div class="swiper" id="section-swiper-{{ section.id }}">
+                    <div class="swiper-wrapper my-6">
                         {% for media in product.media %}
-                            <div class="swiper-slide">
-                                <div class="h-80 overflow-hidden p-2">
-                                    {% render 'product-media', media: media%}
+                            <div class="swiper-slide flex items-center justify-center p-2">
+                                <div class="">
+                                    <img class="max-w-full h-full object-contain" src="{{ media | img_url: 'large' }}" alt="{{ media.preview_image.alt }}">
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
                     <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination" id="swiper-pagination-{{ section.id }}"></div>
                     <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev" id="swiper-button-prev-{{ section.id }}"></div>
+                    <div class="swiper-button-next" id="swiper-button-next-{{ section.id }}"></div>
                 </div>
             </div>
 
         </div>
-        <div class="product--information sticky top-5 p-2">
+        <div class="product--information sticky top-5">
             {% form 'product', product, id: 'product-form', novalidate: 'novalidate' %}
-                <input type="text" name="id" value="{{ product.selected_variant.id }}">
+                <input type="hidden" name="id" value="{{ product.selected_variant.id }}">
 
                 {% for block in section.blocks %}
                     {% case block.type %}
                         {% when 'vendor' %}
-                            <div class="my-3">
-                                <span class="text-xs text-gray-500">{{ product.vendor }}</span>
+                            <div class="my-1 px-5">
+                                <span class="text-base text-clr_primary uppercase font-extrabold">{{ product.vendor }}</span>
                             </div>
                         {% when 'title' %}
-                            <div class="my-3">
-                                <h1 class="text-3xl text-gray-900">{{ product.title }}</h1>
+                            <div class="my-1 px-5">
+                                <h1 class="text-base text-clr_navigation uppercase font-bold">{{ product.title }}</h1>
                             </div>
                         {% when 'price' %}
-                            <div class="my-3" id="price-{{ section.id }}">
-                                <span class="text-base text-gray-500 line-through">{{ selected_variant.compare_at_price | money }}</span>
-                                <span class="text-lg text-gray-900">{{ selected_variant.price | money }}</span>
-                                {% if selected_variant.price < selected_variant.compare_at_price %}
+                            <div class="my-2 px-5 space-x-3" id="price-{{ section.id }}">
+                                <span class="text-lg text-clr_primary font-bold">{{ selected_variant.price | money }}</span>
+                                <span class="text-lg text-clr_navigation line-through font-light">{{ selected_variant.compare_at_price | money }}</span>
+                                <!-- {% if selected_variant.price < selected_variant.compare_at_price %}
                                     <span class="px-5 py-1 text-sm font-bold bg-red-500 rounded-full text-white mx-4">Sale</span>
-                                {% endif %}
+                                {% endif %} -->
                             </div>
                         {% when 'variant_selector' %}
-                            <div class="my-3">
+                            <div class="my-1 px-5">
                                 {% unless product.has_only_default_variant %}
                                     <variant-selector data-url="{{ product.url }}" data-section="{{ section.id }}">
                                         <!-- Product opions like color, size, etc -->
                                         {% for option in product.options_with_values %}
                                         <!-- Every label would have the same id if we didnt add an index value -->
-                                            <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
                                             <div class="my-2">
                                                 <select 
                                                     name="options[{{ option.name | escape }}]" 
                                                     id="Option-{{ section.id }}-{{ forloop.index0 }}" 
-                                                    class="w-full border py-3 px-3"
+                                                    class="w-full bg-clr_variant_dropdown py-3 px-3 text-base font-bold text-clr_navigation"
                                                     >
                                                     {% for value in option.values %}
                                                         <option 
+                                                            class="border-r-clr_variant_dropdown flex- text-base font-bold text-clr_navigation"
                                                             value="{{ value | escape }}"
                                                             {% if option.selected_value == value %}
                                                                 selected="selected"
@@ -81,6 +81,8 @@
                                                         </option>
                                                     {% endfor %}
                                                 </select>
+                                            <label for="Option-{{ section.id }}-{{ forloop.index0 }}">{{ option.name }}</label>
+
                                             </div>
                                             <script type="application/json">
                                                 {{ product.variants | json }}
@@ -90,19 +92,19 @@
                                 {% endunless %}
                             </div>
                         {% when 'quantity' %}
-                            <div class="my-3">
+                            <div class="my-1 px-5">
                                 <label for="Quantity-{{ section.id }}">Quantity</label>
                             </div>
-                            <div class="my-2">
+                            <div class="my-2 px-5">
                                 <input type="number" name="quantity" id="Quantity-{{ section.id }}" value="1" min="1" class="w-full border px-3 py-3">
                             </div>
                         {% when 'description' %}
-                            <div class="my-3">
-                                <p class="text-gray-700">{{ product.description }}</p>
+                            <div class="mt-1 py-2 px-5 bg-clr_dropdown">
+                                <p class="text-xs text-white font-light">{{ product.description }}</p>
                             </div>
                         {% when 'checkout_buttons' %}
-                            <div class="my-3" id="button-{{ section.id }}">
-                                <button type="submit" name="add" class="w-full px-6 py-4 text-white hover:bg-gray-700 rounded-sm my-2
+                            <div class="my-1 px-5" id="button-{{ section.id }}">
+                                <button type="submit" name="add" class="w-full px-6 py-4 text-white uppercase bg-gradient-to-r from-[#EAB787] to-[#9A684B] hover:bg-gray-700 rounded-full my-2"
                                     {% if selected_variant.available == false %}
                                         bg-gray-600 
                                     {% else %}
@@ -127,22 +129,22 @@
 </div>
 
 <style>
-    .swiper-button-prev, .swiper-button-next{
-        color: black;
+    #swiper-button-next-{{ section.id }}, #swiper-button-prev-{{ section.id }}{
+        color: black !important;
         top: auto !important;
-        height: 20px;
+        height: 20px !important;
     }
 
-    .swiper-button-prev::after, .swiper-button-next::after{
-        font-size: 20px;
+    #swiper-button-prev-{{ section.id }}::after, #swiper-button-next-{{ section.id }}::after{
+        font-size: 20px !important;
     }
 
-    .swiper-pagination{
+    #swiper-pagination-{{ section.id }}{
         color:black;
         bottom: 0 !important;
     }
 
-    .swiper-pagination-bullet-active{
+    #swiper-pagination-{{ section.id }} .swiper-pagination-bullet-active{
         background:black !important;
     }
 
@@ -241,20 +243,20 @@
 </script>
 
 <script>
-    const swiper = new Swiper('.swiper', {
+    const swiper_product = new Swiper('#section-swiper-{{ section.id }}', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
 
   // If we need pagination
   pagination: {
-    el: '.swiper-pagination',
+    el: '#swiper-pagination-{{ section.id }}',
   },
 
   // Navigation arrows
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '#swiper-button-next-{{ section.id }}',
+    prevEl: '#swiper-button-prev-{{ section.id }}',
   },
 
   // And if we need scrollbar
