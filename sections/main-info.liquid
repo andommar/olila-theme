@@ -1,71 +1,77 @@
     <!-- Section container -->
 <div class="md:container mx-auto md:p-3 md:px-6 bg-clr_dropdown ">
-    <div class="hidden md:flex">
-        <div class="grid grid-cols-2 gap-11 text-white text-regular">
-            <div class="flex flex-col space-y-6">
-                <div class="item">
-                    <h3 class="text-2xl">DU FINDER OS HER</h3>
-                    <div class="grid grid-cols-3 gap-3">
-                        <div class="col-item flex flex-col">
-                            <p class="font-bold">Olila Esbjerg</p>
-                            <p>Kongensgade 94, 6700 Esbjerg</p>
-                            <p>Telefon: 2575 5071</p>
-                            <p>info@olila.dk</p>
-                            <p>CVR: 4286943</p>
-                        </div>
-                        <div class="col-item">
-                            <p class="font-bold">Åbningstider</p>
-                            <p>Mandag – torsdag kl. 10.00 – 17.30</p>
-                            <p>Fredagkl. 10.00 – 18.00</p>
-                            <p>Lørdagkl. 10.00 – 15.00</p>
-                        </div>
-                        <div class="col-item">
-                            <p>Søndag: Lukket(Eller efter aftale)</p>
-                            <p>Specielle åbningstider 2021</p>
-                        </div>
+    <div class="hidden md:flex items-center justify-center max-w-6xl mx-auto">
+        <div class="w-full md:px-10 grid grid-rows-3 grid-flow-col gap-x-6 gap-y-2 text-white text-regular">
+            <div class="item">
+                <h3 class="text-2xl mb-2">DU FINDER OS HER</h3>
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="col-item flex flex-col space-y-3">
+                        <p class="font-bold">Olila Esbjerg</p>
+                        <p>Kongensgade 94, 6700 Esbjerg</p>
+                        <p>Telefon: 2575 5071</p>
+                        <p>info@olila.dk</p>
+                        <p>CVR: 4286943</p>
+                    </div>
+                    <div class="col-item space-y-3">
+                        <p class="font-bold">Åbningstider</p>
+                        <p>Mandag – torsdag <br> kl. 10.00 – 17.30</p>
+                        <p>Fredagkl <br> 10.00 – 18.00</p>
+                        <p>Lørdagkl <br> 10.00 – 15.00</p>
+                    </div>
+                    <div class="col-item space-y-3">
+                        <p> &nbsp;</p>
+                        <p>Søndag: Lukket <br> (Eller efter aftale)</p>
+                        <p>Specielle åbningstider 2021</p>
                     </div>
                 </div>
-                <div class="item">
-                    <h3 class="text-2xl">RABATKODER & GAVEKORT</h3>
-                    <ul>
-                        <li>Gavekort</li>
-                        <li>Spørgsmål til gavekort</li>
+            </div>
+            <div class="item">
+                <h3 class="text-2xl mb-2">RABATKODER & GAVEKORT</h3>
+                <ul class="space-y-3">
+                    <li>Gavekort</li>
+                    <li>Indløs gavekort</li>
+                    <li>Spørgsmål til gavekort</li>
+                </ul>
+            </div>
+            <div class="item">
+                <h3 class="text-2xl mb-2">OM OLILA</h3>
+                <ul class="space-y-3">
+                    <li>Hvem er vi</li>
+                    <li>Job</li>
+                </ul>
+            </div>
+            <div class="item">
+                <h3 class="text-2xl mb-2">HURTIG LEVERING</h3>
+                <ul class="space-y-3">
+                    <li>Gratis fragt ved køb over 399 kr. </li>
+                    <li>Dag til dag leverling</li>
+                    <li>14 dages returret</li>
+                    <li>Kundeservice alle dage fra 07.00-23.00</li>
+                </ul>
+            </div>
+            <div class="item">
+                <h3 class="text-2xl mb-2">HJÆLP & KONTAKTINFORMATION</h3>
+                <div class="grid grid-cols-2 gap-3">
+                    <ul class="space-y-3">
+                        <li>Bestillinger</li>
+                        <li>Betaling og sikkerhed</li>
+                        <li>Betaling med kreditkort</li>
+                        <li>Levering</li>
                     </ul>
-                </div>
-                <div class="item">
-                    <h3 class="text-2xl">OM OLILA</h3>
-                    <ul>
-                        <li>Hvem er vi</li>
-                        <li>Blog</li>
-                        <li>Job</li>
+                    <ul class="space-y-3">
+                        <li>Returneringer</li>
+                        <li>Sådan returnerer du</li>
+                        <li>Tilmelding af nyhedsbrev</li>
                     </ul>
                 </div>
             </div>
-            <div class="flex flex-col space-y-6">
-                <div class="item">
-                    <h3 class="text-2xl">HURTIG LEVERING</h3>
-                    <ul>
-                        <li>Gratis fragt ved køb over 399 kr. </li>
-                        <li>Dag til dag leverling</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <h3 class="text-2xl">HJÆLP & KONTAKTINFORMATION</h3>
-                    <ul>
-                        <li>Gavekort</li>
-                        <li>Spørgsmål til gavekort</li>
-                        <li>14 dages returret</li>
-                        <li>Kundeservice alle dage fra 10.00-18.00</li>
-                    </ul>
-                </div>
-                <div class="item">
-                    <h3 class="text-2xl">BETALING- & FRAGTMULIGHEDER</h3>
-                    {% if shop.enabled_payment_types != empty %}
-                        {% for payment in shop.enabled_payment_types %}
-                            {{ payment | payment_type_svg_tag: class: 'h-[64px] w-[64px]' }}
-                        {% endfor %}
-                    {% endif %}
-                </div>
+            <div class="item">
+                <h3 class="text-2xl mb-2">BETALING- & FRAGTMULIGHEDER</h3>
+                {% if shop.enabled_payment_types != empty %}
+                    {% for payment in shop.enabled_payment_types %}
+                        {{ payment | payment_type_svg_tag: class: 'h-[64px] w-[64px]' }}
+                    {% endfor %}
+                {% endif %}
             </div>
         </div>
     </div>

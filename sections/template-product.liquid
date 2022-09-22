@@ -3,18 +3,41 @@
 
 {% assign selected_variant = product.selected_or_first_available_variant %}
 
-<div class="max-w-6xl mx-auto container">
+<div class="mx-auto md:container">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
         <div class="product--medias">
-            <div class="hidden md:block">
-                {% for media in product.media %}
+            <div class="hidden md:block ">
+                <div
+                style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                class="swiper mySwiper2 max-w-2xl"
+              >
+                <div class="swiper-wrapper">
+                    {% for media in product.media %}
+                        <div class="swiper-slide">
+                            <img class="w-full h-full object-cover" src="{{ media | img_url: 'original' }}" alt="{{ media.preview_image.alt }}">
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-next" id="swiper-button-next-product-{{ section.id }}"></div>
+                <div class="swiper-button-prev" id="swiper-button-prev-product-{{ section.id }}"></div>
+              </div>
+              <div thumbsSlider="" class="swiper mt-2 mySwiper max-w-2xl max-h-lg">
+                <div class="swiper-wrapper">
+                    {% for media in product.media %}
+                        <div class="swiper-slide">
+                            <img class="w-full h-full object-cover" src="{{ media | img_url: 'original' }}" alt="{{ media.preview_image.alt }}">
+                        </div>
+                    {% endfor %}
+                </div>
+              </div>
+                <!-- {% for media in product.media %}
                     <div class="h-72 overflow-hidden p-2">
                         {% render 'product-media', media: media %}
                     </div>
-                {% endfor %}
+                {% endfor %} -->
             </div>
             
-            <div class="md:hidden">
+            <div class="md:hidden p-3 md px-6">
                 <div class="swiper" id="section-swiper-{{ section.id }}">
                     <div class="swiper-wrapper my-6">
                         {% for media in product.media %}
@@ -34,10 +57,9 @@
             </div>
 
         </div>
-        <div class="product--information sticky top-5">
-            {% form 'product', product, id: 'product-form', novalidate: 'novalidate' %}
+        <div class="product--information top-5">
+            {% form 'product', product, id: 'product-form', novalidate: 'novalidate', class:'flex flex-col h-full' %}
                 <input type="hidden" name="id" value="{{ product.selected_variant.id }}">
-
                 {% for block in section.blocks %}
                     {% case block.type %}
                         {% when 'vendor' %}
@@ -99,7 +121,9 @@
                                 <input type="number" name="quantity" id="Quantity-{{ section.id }}" value="1" min="1" class="w-full border px-3 py-3">
                             </div>
                         {% when 'description' %}
-                            <div class="mt-1 py-2 px-5 bg-clr_dropdown">
+                            <div class="mt-3 py-6 px-5 bg-clr_dropdown">
+                                <h3 class="text-white uppercase text-base font-bold">Beskrivelse</h3>
+                                <!-- <p class="text-xs text-white font-light">a</p> -->
                                 <p class="text-xs text-white font-light">{{ product.description }}</p>
                             </div>
                         {% when 'checkout_buttons' %}
@@ -146,10 +170,6 @@
 
     #swiper-pagination-{{ section.id }} .swiper-pagination-bullet-active{
         background:black !important;
-    }
-
-    .product--information {
-        height: fit-content;
     }
 </style>
 
@@ -243,7 +263,7 @@
 </script>
 
 <script>
-    const swiper_product = new Swiper('#section-swiper-{{ section.id }}', {
+    const swiper_product_mbl = new Swiper('#section-swiper-{{ section.id }}', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
@@ -263,6 +283,23 @@
   scrollbar: {
     el: '.swiper-scrollbar',
   },
+});
+
+let swiper_product = new Swiper(".mySwiper", {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+      });
+let swiper_product_thumbnail = new Swiper(".mySwiper2", {
+spaceBetween: 10,
+navigation: {
+    nextEl: "#swiper-button-next-product-{{ section.id }}",
+    prevEl: "#swiper-button-prev-product-{{ section.id }}",
+},
+thumbs: {
+    swiper: swiper_product,
+},
 });
 </script>
 

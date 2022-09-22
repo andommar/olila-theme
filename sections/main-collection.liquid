@@ -2,12 +2,15 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
 <!-- Container -->
-<div class="p-3 md px-6 pb-12  mx-auto flex flex-col md:items-center md:container">
-    <div>
+<div class="p-3 md px-6 pb-12  mx-auto flex flex-col md:items-center md:container
+            section-color">
+    <div class="max-w-6xl">
         <!-- Section title -->
-        <div class="flex flex-row items-center justify-between">
-            <h3 class="uppercase my-3 font-bold nowrap text-lg text-clr_navigation md:text-2xl">{{ section.settings.text_title }}</h3>
-            <a href="{{ section.settings.featured_collection.url }}" class="uppercase whitespace-nowrap text-regular font-bold underline text-clr_navigation">See alle</a>
+        <div class="w-full md:px-10 flex flex-row items-center justify-between">
+            <h3 class="uppercase my-3 font-bold nowrap text-lg text-clr_navigation md:text-2xl bg-">{{ section.settings.text_title }}</h3>
+            {% if section.settings.see_all_checkbox == true %}
+                <a href="{{ section.settings.featured_collection.url }}" class="uppercase whitespace-nowrap text-regular font-bold underline text-clr_navigation">See alle</a>
+            {% endif %}
         </div>
         <!-- Products container -->
         <div class="md:hidden">
@@ -37,7 +40,7 @@
             </div>
 
         </div>
-        <div class="hidden overflow-x-auto md:flex flex-row items-center justify-start  space-x-6 md:space-y-0 md:justify-center">
+        <div class="hidden w-full md:px-10  overflow-x-auto md:flex flex-row items-center justify-start  space-x-6 md:space-y-0 md:justify-between">
             {% for product in section.settings.featured_collection.products limit:section.settings.number_of_products_to_show %}
             <!-- Product item -->
             <div class="relative min-w-[132px]">
@@ -74,6 +77,12 @@
     #swiper-pagination-{{ section.id }} .swiper-pagination-bullet-active{
         background:black !important;
     }
+
+    {% if section.settings.background_color %} 
+        .section-color{
+            background-color: {{ section.settings.background_color }}
+        }
+    {%endif%}
 </style>
 
 <script>
@@ -122,7 +131,19 @@
             "min": 4,
             "max": 10,
             "default": 4
-         }
+         },
+        {
+            "type": "checkbox",
+            "id": "see_all_checkbox",
+            "label": "Display see all link?",
+            "default": true
+        },
+        {
+            "type": "color",
+            "id": "background_color",
+            "label": "Background color",
+            "default": "#FFFFFF"
+        }
         ],
         "presets": [
         {

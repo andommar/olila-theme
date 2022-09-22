@@ -1,0 +1,43 @@
+<link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+
+<!-- Container -->
+<div class="p-3 px-6 mx-auto flex flex-col md:items-center md:container">
+    <!-- Section title -->
+    <h3>{{ section.settings.text_title }}</h3>
+    <a href="{{ section.settings.featured_collection }}">SEE ALLE</a>
+    <!-- Products container -->
+    <div class="md:hidden">
+        
+    </div>
+</div>
+
+
+{% schema %}
+    {
+        "name": "Related products",
+        "settings":[
+           {
+            "type": "text",
+            "id": "text_title",
+            "label": "Text title",
+            "default": "Text title",
+           },
+           {
+            "type": "range",
+            "id": "number_products_displayed",
+            "label": "Number products displayed",
+            "min": 4,
+            "max": 10,
+            "step": 1,
+            "default": 4
+           },
+          {
+            "type": "collection",
+            "id": "featured_collection",
+            "label": "Featured collection"
+          }
+        ]
+    }
+{% endschema %}

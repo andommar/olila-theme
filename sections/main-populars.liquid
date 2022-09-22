@@ -3,15 +3,15 @@
 
 <!-- Container -->
 <div class="p-3 md px-6 pb-12  mx-auto flex flex-col md:items-center md:container bg-gradient-to-r from-clr_blue_ocean_grad2 to-clr_blue_ocean_grad1">
-    <div>
+    <div class="max-w-6xl">
         <!-- Section title -->
-        <div class="flex flex-row items-center justify-between">
+        <div class="w-full flex flex-row items-center justify-between">
             <h3 class="uppercase my-3 font-bold nowrap text-lg text-white md:text-2xl">{{ section.settings.text_title }}</h3>
             <a href="{{ section.settings.featured_collection.url }}" class="uppercase whitespace-nowrap text-regular font-bold underline text-white">See alle</a>
         </div>
-
+ 
         <!-- Products container -->
-        <div class="md:hidden">
+        <div class="md:hidden ">
             <div class="swiper" id="section-swiper-{{ section.id }}">
                 <div class="swiper-wrapper my-6">
                     {% for product in section.settings.featured_collection.products limit:section.settings.number_of_products_to_show %}
@@ -38,19 +38,19 @@
             </div>
 
         </div>
-        <div class="hidden overflow-x-auto md:flex flex-row items-center justify-start space-x-6 md:space-y-0 md:justify-center">
+        <div class="hidden w-full overflow-x-auto md:flex flex-row items-center justify-start  space-x-6 md:space-y-0 md:justify-center">
             {% for product in section.settings.featured_collection.products limit:section.settings.number_of_products_to_show %}
-                <!-- Product item -->
-                <div class="relative min-w-[132px]">
-                    <!-- Product image -->
-                    <img class="max-h-[200px] w-[200px] object-cover overflow-y-hidden" src={{ product.featured_image | img_url: 'large' }} alt="">
-                    <!-- Product description -->
-                    <div class="flex flex-col items-start justify-start">
-                        <p class="font-bold text-normal text-white uppercase">{{ product.vendor }}</p>
-                        <p class="font-light text-normal text-white uppercase">{{ product.title }}</p>
-                        <p class="font-bold text-normal text-white uppercase">{{ product.price | money}}</p>
-                    </div>
+            <!-- Product item -->
+            <div class="relative min-w-[132px]">
+                <!-- Product image -->
+                <img class="max-h-[220px] overflow-y-hidden" src={{ product.featured_image | img_url: 'large' }} alt="">
+                <!-- Product description -->
+                <div class="flex flex-col items-start justify-start">
+                    <p class="font-bold text-normal text-clr_navigation">{{ product.vendor }}</p>
+                    <p class="font-light text-normal text-clr_navigation">{{ product.title }}</p>
+                    <p class="font-bold text-normal text-clr_navigation">{{ product.price | money}}</p>
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>

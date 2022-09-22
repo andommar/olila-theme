@@ -1,66 +1,68 @@
   <!-- Footer container -->
   <div class="md:container md:mx-auto p-3 px-6 bg-clr_primary">
-    <div class="flex flex-col items-center justify-between space-y-6 my-12 md:flex-row">
-      <!-- Footer logo -->
-      <img src="https://svgshare.com/i/mJG.svg" alt="">
-      <!-- Footer input group -->
-      <div class="flex flex-col items-center justify-center">
-        {% if section.settings.newsletter_title_1 %}          
-          <h3 class="uppercase whitespace-nowrap lg:text-2xl md:text-xl sm:text-regular text-white font-bold">
-            {{ section.settings.newsletter_title_1 }}
+    <div class="max-w-6xl mx-auto">
+      <div class="w-full md:px-10 flex flex-col items-center justify-between space-y-6 my-12 md:flex-row">
+        <!-- Footer logo -->
+        <img src="https://svgshare.com/i/mJG.svg" alt="">
+        <!-- Footer input group -->
+        <div class="flex flex-col items-center justify-center">
+          {% if section.settings.newsletter_title_1 %}          
+            <h3 class="uppercase whitespace-nowrap lg:text-2xl md:text-xl sm:text-regular text-white font-bold">
+              {{ section.settings.newsletter_title_1 }}
+            </h3>
+          {% endif %}
+          {% if section.settings.newsletter_title_2 %}          
+            <h3 class="uppercase whitespace-nowrap lg:text-2xl md:text-xl sm:text-regular text-white font-bold">
+              {{ section.settings.newsletter_title_2 }}
+            </h3>
+          {% endif %}
+  
+          {% form 'contact', class: 'flex flex-col items-center justify-center' %}
+              <div class="flex flex-col md:flex md:flex-row items-center justify-center space-y-3 my-3 md:space-y-0 md:space-x-3">
+                  <input class="rounded-full p-2 px-6 text-center" type="text" name="contact[name]" placeholder="NAVM">
+                  <input class="rounded-full p-2 px-6 text-center" type="email" name="contact[email]" placeholder="E-MAIL">
+              </div>
+              <div class="my-3">
+                <a href="#" class="uppercase p-3 px-6 text-white font-bold bg-clr_primary_variaton rounded-full">TILMELD NU</a>
+              </div>
+          {% endform %}
+        </div>
+        <!-- Footer right item -->
+        <div class="flex flex-col">
+          <!-- Find us  -->
+          <h3 class="uppercase whitespace-nowrap text-2xl font-bold text-white">
+            FØLG OS
           </h3>
-        {% endif %}
-        {% if section.settings.newsletter_title_2 %}          
-          <h3 class="uppercase whitespace-nowrap lg:text-2xl md:text-xl sm:text-regular text-white font-bold">
-            {{ section.settings.newsletter_title_2 }}
-          </h3>
-        {% endif %}
-
-        {% form 'contact', class: 'flex flex-col items-center justify-center' %}
-            <div class="flex flex-col md:flex md:flex-row items-center justify-center space-y-3 my-3 md:space-y-0 md:space-x-3">
-                <input class="rounded-full p-2 px-6 text-center" type="text" name="contact[name]" placeholder="NAVM">
-                <input class="rounded-full p-2 px-6 text-center" type="email" name="contact[email]" placeholder="E-MAIL">
-            </div>
-            <div class="my-3">
-              <a href="#" class="uppercase p-3 px-6 text-white font-bold bg-clr_primary_variaton rounded-full">TILMELD NU</a>
-            </div>
-        {% endform %}
-      </div>
-      <!-- Footer right item -->
-      <div class="flex flex-col">
-        <!-- Find us  -->
-        <h3 class="uppercase whitespace-nowrap text-2xl font-bold text-white">
-          FØLG OS
-        </h3>
-        <!-- Social media icons -->
-        <div class="flex flex-row items-center justify-center space-x-3">
-            {% if section.settings.facebook_url != blank %}
-              <a href="{{ section.settings.facebook_url }}">
-                {% render 'icon-facebook' %}
-              </a>
-            {% endif %}
-            {% if section.settings.instagram_url != blank %}
-              <a href="{{ section.settings.instagram_url }}">
-                {% render 'icon-instagram' %}
-              </a>
-            {% endif %}
-
+          <!-- Social media icons -->
+          <div class="flex flex-row items-center justify-center space-x-3">
+              {% if section.settings.facebook_url != blank %}
+                <a href="{{ section.settings.facebook_url }}">
+                  {% render 'icon-facebook' %}
+                </a>
+              {% endif %}
+              {% if section.settings.instagram_url != blank %}
+                <a href="{{ section.settings.instagram_url }}">
+                  {% render 'icon-instagram' %}
+                </a>
+              {% endif %}
+  
+          </div>
         </div>
       </div>
-    </div>
-    <div class="flex justify-between md:items-center md:justify-center md:space-x-6">
-          <div class="flex flex-col items-start space-y-2 md:flex-row md:items-center md:space-x-6 md:space-y-0">
-            {% assign left_blocks = section.blocks | where: "type", "bottom_inf_left"  %}
-            {% for block in left_blocks %}
-              <a class="uppercase text-clr_primary_variaton text-sm md:text-regular font-bold" href="{{ block.settings.url_bottom }}">{{ block.settings.text_title_bottom }}</a>
-            {% endfor %}
-          </div>        
-          <div class="flex flex-col items-end space-y-2 md:flex-row md:items-center md:space-x-6 md:space-y-0">
-            {% assign right_blocks = section.blocks | where: "type", "bottom_inf_right"  %}
-            {% for block in right_blocks %}
-              <a class="uppercase text-clr_primary_variaton text-sm md:text-regular font-bold" href="{{ block.settings.url_bottom }}">{{ block.settings.text_title_bottom }}</a>
-            {% endfor %}
-          </div>
+      <div class="w-full md:px-10 flex justify-between md:items-center md:justify-center md:space-x-6">
+            <div class="flex flex-col items-start space-y-2 md:flex-row md:items-center md:space-x-6 md:space-y-0">
+              {% assign left_blocks = section.blocks | where: "type", "bottom_inf_left"  %}
+              {% for block in left_blocks %}
+                <a class="uppercase text-clr_primary_variaton text-sm md:text-regular font-bold" href="{{ block.settings.url_bottom }}">{{ block.settings.text_title_bottom }}</a>
+              {% endfor %}
+            </div>        
+            <div class="flex flex-col items-end space-y-2 md:flex-row md:items-center md:space-x-6 md:space-y-0">
+              {% assign right_blocks = section.blocks | where: "type", "bottom_inf_right"  %}
+              {% for block in right_blocks %}
+                <a class="uppercase text-clr_primary_variaton text-sm md:text-regular font-bold" href="{{ block.settings.url_bottom }}">{{ block.settings.text_title_bottom }}</a>
+              {% endfor %}
+            </div>
+      </div>
     </div>
   </div>
 
