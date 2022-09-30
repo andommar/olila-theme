@@ -2,7 +2,10 @@
     "sections": {
         "template": {
             "type": "template-collection"
+        },
+        "sub-collection":{
+            "type": "collection-sub-collections"
         }
     },
-    "order": ["template"]
+    "order": ["template", "sub-collection"]
 }

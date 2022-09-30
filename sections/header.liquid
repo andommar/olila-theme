@@ -30,37 +30,39 @@ font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"> -->
 
 
 
-<div class="md:container md:mx-auto relative" >
+<div class="relative" >
     <div class="hidden bg-black bg-opacity-50 h-screen w-screen z-20 fixed" id="mobile-bg">
     </div>
     <!-- Flex container -->
-    <div class="flex max-w- items-center justify-center bg-clr_primary p-3 md:justify-between md:px-16 md:bg-clr_header_bg">
+    <div class="bg-clr_primary md:bg-clr_header_bg">
         <!-- Top message item 1 -->
-        <div>
-            <p class="font-bold text-sm uppercase text-white md:text-black">
-                Stort udvalg af danmarks 
-                <span class="text-clr_primary_variaton font-black">favoritmærker</span>
-            </p>
-        </div>
-        <div class="hidden md:block">
-            <p class="font-bold text-sm uppercase">
-                Stort udvalg af danmarks 
-                <span class="text-clr_primary_variaton font-black">favoritmærker</span>
-            </p>
-        </div>
-        <div class="hidden md:block">
-            <p class="font-bold text-sm uppercase">
-                Stort udvalg af danmarks 
-                <span class="text-clr_primary_variaton font-black">favoritmærker</span>
-            </p>
+        <div class="md:container md:mx-auto flex items-center justify-center  p-3 md:justify-between">
+            <div>
+                <p class="font-bold text-sm uppercase text-white md:text-black">
+                    Stort udvalg af danmarks 
+                    <span class="text-clr_primary_variaton font-black">favoritmærker</span>
+                </p>
+            </div>
+            <div class="hidden md:block">
+                <p class="font-bold text-sm uppercase">
+                    Stort udvalg af danmarks 
+                    <span class="text-clr_primary_variaton font-black">favoritmærker</span>
+                </p>
+            </div>
+            <div class="hidden md:block">
+                <p class="font-bold text-sm uppercase">
+                    Stort udvalg af danmarks 
+                    <span class="text-clr_primary_variaton font-black">favoritmærker</span>
+                </p>
+            </div>
         </div>
     </div>
 
     <!-- Navbar -->
-    <nav class="relative">
+    <nav class="md:container md:mx-auto relative">
         <!-- Flex container -->
-        <div class="flex items-center justify-between px-6 md:px-16 md:p-4">
-            <div class="hidden space-x-6 md:flex md:flex-row">
+        <div class="flex items-center justify-between py-6 px-3">
+            <div class="hidden space-x-3 md:flex md:flex-row">
                 {% for link in section.settings.menu.links %}
                     <!-- Mega menu -->
                     <div class="group">
@@ -70,33 +72,22 @@ font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"> -->
                                 <a href="{{ link.url }}" class="text-regular uppercase hover:font-bold"> {{ link.title }} </a>
                                 <!-- {% render 'icon-dropdown-arrow' %} -->
                             {% endif %}
-                        <div class="hidden group-hover:flex flex-col absolute left-0 p-10 w-full bg-clr_dropdown text-black duration-300">
+                        <div class="hidden z-40 group-hover:flex flex-col absolute left-0 p-10 w-full bg-clr_dropdown text-black transition duration-1000">
                             <div class="grid grid-cols-2 gap-5 md:grid-cols-4">
-                                <div class="flex flex-col">
-                                    <h4 class="uppercase mb-4 text-base text-white font-bold">Category 1</h4>
-                                    {% for childlink in link.links %}
-                                        <a href="{{ childlink.url }}" class="hover:underline text-white text-regular">{{ childlink.title }}</a>
-                                    {% endfor %}
-                                </div>
-                                <div class="flex flex-col">
-                                    <h4 class="uppercase mb-4 text-base text-white font-bold">Category 2</h4>
-                                    <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                                </div>
-                                <div class="flex flex-col">
-                                    <h4 class="uppercase mb-4 text-base text-white font-bold">Category 3</h4>
-                                    <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                                </div>
-                                <div class="flex flex-col">
-                                    <h4 class="uppercase mb-4 text-base text-white font-bold">Category 4</h4>
-                                    <a href="#" class="hover:underline text-white text-regular">Accessories</a>
-                                </div>
+                                {% for childlink in link.links %}
+                                    <div class="flex flex-col">
+                                        <a href="{{ childlink.url }}" class="uppercase mb-4 text-regular text-white font-bold">{{ childlink.title }}</a>
+                                        {% for nestedchild in childlink.links %}
+                                            <a href="{{ nestedchild.url }}" class="hover:underline text-white text-regular my-1 font-light">{{ nestedchild.title }}</a>
+                                        {% endfor %}
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
                 {% endfor %}
             </div>
-    
-    
+
             <!-- Burger menu mobile -->
             <div id="menu-btn" class="md:hidden">
                 {% render 'icon-hamburger' %}
@@ -105,12 +96,19 @@ font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"> -->
                 {% render 'icon-heart' %}
             </div> -->
             <!-- Logo -->
-            <div>
-                <h4>{{ shop.name }}</h4>
+            <div class="max-h-[80px] absolute right-1/2 top-1/2 -translate-y-1/2 translate-x-1/2">
+                {% if section.settings.store_logo %}
+                <a href="{{ shop.url }}">
+                    <img class="h-full" src="{{ section.settings.store_logo | img_url: 'small' }}" alt="{{ section.setting.store_logo.alt }}">
+                </a>
+                {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover'}}
+                {% endif %}
             </div>
+
     
             <!-- Right icons -->
-            <div class="flex items-center justify-around md:justify-between space-x-8 p-3">
+            <div class="flex items-center md:justify-between space-x-3">
                 {% if shop.customer_accounts_enabled %}
                     {% if customer %}
                         <div class="hidden md:block">
@@ -133,10 +131,10 @@ font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"> -->
                         {% render 'icon-cart' %}
                     </a>
                 </div>
-                <div class="md:hidden">
-                    <button id="search-btn">
+                <div class="hidden md:block">
+                    <div id="search-btn">
                         {% render 'icon-search' %}
-                    </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -218,7 +216,12 @@ searchClose.addEventListener('click', ()=>{
             "id": "menu",
             "default": "main-menu",
             "label": "Heading navigation menu "
-        }
+        },
+       {
+        "type": "image_picker",
+        "id": "store_logo",
+        "label": "Store logo"
+       }
     ]
 }
 {% endschema %}

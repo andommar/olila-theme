@@ -1,0 +1,30 @@
+
+<div class="grid__item flex flex-col w-fit bg-white p-3 relative items-center justify-center pb-6 ">
+    <div class="">
+        {% if param_item.featured_image %}
+            <a href="{{ param_item.url }}">
+                <img class="w-full object-cover" src="{{ param_item.featured_image | img_url: 'original' }}" alt="">
+            </a>
+        {% else %}
+            {{ 'product-1' | placeholder_svg_tag: 'w-full h-full object-cover'}}
+        {% endif %}
+    </div>
+    <div class="flex flex-col items-center text-tiny text-center w-full text-clr_navigation">
+        <p class="md:text-xs font-semibold uppercase">{{ param_item.vendor }}</p>
+        <a href="{{ param_item.url }}"
+            class="md:text-xs hover:text-clr_primary font-semibold uppercase  hover:underline">
+            {{ param_item.title }}
+        </a>
+        <div class="flex items-center justify-center space-x-2 w-full my-2">
+            <p class="text-regular md:text-lg font-semibold">{{ param_item.price | money }}</p>
+            <p class="text-tiny line-through md:text-xs font-light">{{ param_item.compare_at_price | money }}</p>
+        </div>
+    </div>
+    <div class="absolute -bottom-4 right-1/2 translate-x-1/2">
+        <a 
+        href="{{ param_item.url }}"
+        class="uppercase whitespace-nowrap p-2 px-6 text-xs text-white font-bold bg-white rounded-full
+        bg-gradient-to-r from-clr_gold to-clr_primary
+        hover:bg-gradient-to-r hover:from-[#87BAEA] hover:to-[#4B7D9A] ">Se mere</a>
+    </div>
+</div>

@@ -1,24 +1,88 @@
-<div class="px-4 py-8 md:container md:mx-auto">
-    <a href="{{ routes.collections_url }}" class="text-base text-gray-500 hover:underline">Go back to collections</a>
-    {% paginate collection.products by section.settings.number_of_products_per_page %}
-    <h1 class="text-3xl text-center">{{ collection.title }}</h1>
+<div class="px-4 py-8 md:container md:mx-auto bg-[#E5E5E5]">
+    {% render 'breadcrumb' %}
+    <div class=" md:px-10 grid grid-cols-1 md:grid-cols-10">
+        <!-- Sidebar -->
+        <div class="hidden md:block sidenav font-medium text-xs text-clr_navigation col-span-2">
+            <a href="#" class="block">Collection</a>
+            <a href="#" class="block">Collection</a>
+            <a href="#" class="block">Collection</a>
+            <a href="#" class="block">Collection</a>
+        </div>
+        <!-- Content -->
+        {% paginate collection.products by section.settings.number_of_products_per_page %}
 
-    <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {% for product in collection.products %}
-                {% render 'product-card', product_param: product %}
-            {% else %}
-                <p>There are no products inside of this collection</p>
-            {% endfor %}
+            <div class="content grid grid-cols-2 md:grid-cols-3 col-span-8 gap-6 gap-y-12"
+                id="card-container"
+                data-next-url="{{paginate.next.url}}">
+                <!-- {% include 'breadcrumb' %} -->
+                    {% for product in collection.products %}
+                            {% render 'collection-product-card', param_item: product %}
+                    {% else %}
+                        <p>There are no products inside of this collection</p>
+                    {% endfor %}
+
+            </div>
+            <div class="col-span-full mx-auto">
+                <button id="load-more"
+                        onclick="loadMoreProducts()"
+                        class="px-4 py-2 text-base font-medium shadow bg-clr_primary_variaton hover:bg-clr_primary text-white" >
+                    Load more
+                </button>
+                <span>Showing 
+                    <span id="card-count"></span> of 
+                    <span id="card-total">{{ collection.products.length }}</span> cards      
+                </span>
+            </div>
+                <!-- {% render 'pagination', pagination: paginate %} -->
+
+        {% endpaginate %} 
+
+        <div class="mx-auto w-full">
+
         </div>
     </div>
-    {% render 'pagination', pagination: paginate %}
-    {% endpaginate %}
 </div>
+
+<script>
+    const productsOnPage = document.getElementById('card-container')
+    let next_url = productsOnPage.dataset.nextUrl;
+
+    const load_more_btn = document.getElementById('load-more');
+
+
+    async function getNextPage () {
+        try{
+            let res = await fetch(next_url)
+            return await res.text()
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async function loadMoreProducts(){
+        let nextPage = await getNextPage();
+
+        const parser = new DOMParser();
+        const nextPageDoc = parser.parseFromString(nextPage, 'text/html');
+
+        const productGrid = nextPageDoc.getElementById('card-container')
+        const newProducts = productGrid.getElementsByClassName('grid__item')
+        const new_url = productGrid.dataset.nextUrl
+        
+        if (new_url) {
+            load_more_btn.style.display = 'block';
+        }
+
+        next_url = new_url;
+        for (let i = 0; i < newProducts.length; i++) {
+            productsOnPage.appendChild(newProducts[i]);
+        }
+    }
+</script>
 
 {% schema %}
     {
-        "name": "Template Collection",
+        "name": "Collection",
         "settings": [
             {
                 "type": "number",

@@ -14,6 +14,9 @@ module.exports = {
       xl: '1440px'
     },
     extend: {
+      transitionProperty: {
+        display: "display"
+      },
       colors: {
         clr_primary: '#9A684B',
         clr_primary_variaton:'#EAB787',
