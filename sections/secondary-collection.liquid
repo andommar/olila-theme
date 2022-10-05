@@ -86,7 +86,7 @@
 </style>
 
 <script>
-    const swiper_collection = new Swiper('#section-swiper-{{ section.id }}', {
+    const swiper_secondary_collection = new Swiper('#section-swiper-{{ section.id }}', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
@@ -111,7 +111,7 @@
 
 {% schema %}
     {
-        "name": "Main collection",
+        "name": "Secondary collection",
         "settings": [
            {
             "type": "text",
@@ -147,7 +147,7 @@
         ],
         "presets": [
         {
-            "name": "Primary collection"
+            "name": "Secondary collection"
         }
     ]
     }

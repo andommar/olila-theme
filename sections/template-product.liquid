@@ -13,7 +13,12 @@
               >
                 <div class="swiper-wrapper">
                     {% for media in product.media %}
-                        <div class="swiper-slide">
+                        <div class="swiper-slide relative">
+                            {% if product.compare_at_price > product.price %}
+                                <div class="absolute text-white top-0 left-0 p-1 px-3 bg-clr_primary mt-3">
+                                    - {{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | remove: '.0' }} %
+                                </div>
+                            {% endif %}
                             <img class="w-full h-full object-cover" src="{{ media | img_url: 'original' }}" alt="{{ media.preview_image.alt }}">
                         </div>
                     {% endfor %}
@@ -37,12 +42,17 @@
                 {% endfor %} -->
             </div>
             
-            <div class="md:hidden p-3 md px-6">
+            <div class="md:hidden">
                 <div class="swiper" id="section-swiper-{{ section.id }}">
                     <div class="swiper-wrapper my-6">
                         {% for media in product.media %}
-                            <div class="swiper-slide flex items-center justify-center p-2">
-                                <div class="">
+                            <div class="swiper-slide flex items-center justify-center">
+                                <div class="relative">
+                                    {% if product.compare_at_price > product.price %}
+                                        <div class="absolute text-white top-0 left-0 p-1 px-3 bg-clr_primary mt-3">
+                                            - {{ product.compare_at_price | minus: product.price | times: 100.0 | divided_by: product.compare_at_price | remove: '.0' }} %
+                                        </div>
+                                    {% endif %}
                                     <img class="max-w-full h-full object-contain" src="{{ media | img_url: 'large' }}" alt="{{ media.preview_image.alt }}">
                                 </div>
                             </div>
@@ -59,7 +69,7 @@
         </div>
         <div class="product--information top-5">
             {% form 'product', product, id: 'product-form', novalidate: 'novalidate', class:'flex flex-col h-full' %}
-                <input type="hidden" name="id" value="{{ product.selected_variant.id }}">
+                <input type="hidden" name="id" value="{{ selected_variant.id }}">
                 {% for block in section.blocks %}
                     {% case block.type %}
                         {% when 'vendor' %}
@@ -72,8 +82,8 @@
                             </div>
                         {% when 'price' %}
                             <div class="my-2 px-5 space-x-3" id="price-{{ section.id }}">
+                                <span class="text-regular text-clr_navigation line-through font-light">{{ selected_variant.compare_at_price | money }}</span>
                                 <span class="text-lg text-clr_primary font-bold">{{ selected_variant.price | money }}</span>
-                                <span class="text-lg text-clr_navigation line-through font-light">{{ selected_variant.compare_at_price | money }}</span>
                                 <!-- {% if selected_variant.price < selected_variant.compare_at_price %}
                                     <span class="px-5 py-1 text-sm font-bold bg-red-500 rounded-full text-white mx-4">Sale</span>
                                 {% endif %} -->
@@ -121,19 +131,20 @@
                                 <input type="number" name="quantity" id="Quantity-{{ section.id }}" value="1" min="1" class="w-full border px-3 py-3">
                             </div>
                         {% when 'description' %}
-                            <div class="mt-3 py-6 px-5 bg-clr_dropdown">
-                                <h3 class="text-white uppercase text-base font-bold">Beskrivelse</h3>
+                            <div class="mt-3 py-6 px-5 description-bg-color">
+                                <h3 class="title_description_color uppercase text-base font-bold">Beskrivelse</h3>
                                 <!-- <p class="text-xs text-white font-light">a</p> -->
-                                <p class="text-xs text-white font-light">{{ product.description }}</p>
+                                <div class="text-xs text_description_color font-normal">{{ product.description }}</div>
                             </div>
                         {% when 'checkout_buttons' %}
                             <div class="my-1 px-5" id="button-{{ section.id }}">
-                                <button type="submit" name="add" class="w-full px-6 py-4 text-white uppercase bg-gradient-to-r from-[#EAB787] to-[#9A684B] hover:bg-gray-700 rounded-full my-2"
+                                <button type="submit" name="add" class="w-full px-6 py-4 uppercase rounded-full my-2
                                     {% if selected_variant.available == false %}
-                                        bg-gray-600 
+                                        bg-clr_grey_bg text-gray-500 
                                     {% else %}
-                                        bg-gray-900 
-                                    {% endif %}"
+                                        bg-gradient-to-r from-[#EAB787] to-[#9A684B] text-white hover:bg-gradient-to-r hover:from-[#87BAEA] hover:to-[#4B7D9A]
+                                    {% endif %}
+                                    "
                                     {% if selected_variant.available == false %}
                                         disabled
                                     {% endif %}
@@ -144,6 +155,20 @@
                                         Add to cart
                                     {% endif %}
                                 </button>
+                            </div>
+                        {% when 'delivery_time' %}
+                            <div class="my-2 px-5" id="button-{{ section.id }}">
+                                <p class="text-center uppercase font-bold text-xs">
+                                    {{ block.settings.delivery_time_text }}
+                                </p>
+                            </div>
+                        {% when 'size_guide' %}
+                            <div class="my-2 px-5" id="button-{{ section.id }}">
+                                <p class="text-center uppercase underline text-xs font-light">
+                                    <a href="{{ block.settings.url_guideline }}">
+                                        {{ block.settings.size_guideline }}
+                                    </a>
+                                </p>
                             </div>
                     {% endcase %}
                 {% endfor %}
@@ -171,6 +196,19 @@
     #swiper-pagination-{{ section.id }} .swiper-pagination-bullet-active{
         background:black !important;
     }
+
+    .description-bg-color{
+        background-color: {{ section.settings.background_color }};
+    }
+
+    .text_description_color{
+        color: {{ section.settings.text_description_color }}
+    }
+
+    .title_description_color{
+        color: {{ section.settings.title_description_color }}
+    }
+
 </style>
 
 <script>
@@ -306,6 +344,27 @@ thumbs: {
 {% schema %}
     {
         "name": "Product",
+        "settings" :[
+            {
+                "type": "color",
+                "id": "background_color",
+                "label": "Description background color",
+                "default": "#F1F1F1"
+            },
+            {
+                "type": "color",
+                "id": "title_description_color",
+                "label": "Title description color",
+                "default": "#596064"
+            },
+            {
+                "type": "color",
+                "id": "text_description_color",
+                "label": "Text description color",
+                "default": "#596064"
+            }
+
+        ],
         "blocks":[
             {
                 "type": "vendor",
@@ -341,6 +400,37 @@ thumbs: {
                 "type": "checkout_buttons",
                 "name": "Checkout_buttons ",
                 "limit": 1
+            },
+            {
+                "type": "size_guide",
+                "name": "Size_guide",
+                "limit": 1,
+                "settings": [
+                    {
+                        "type": "url",
+                        "id": "url_guideline",
+                        "label": "Size guideline"
+                    },
+                    {
+                        "type": "text",
+                        "id": "size_guideline",
+                        "label": "Guideline size",
+                        "default": "STØRRELSESGUIDE"
+                    }
+                ]
+            },
+            {
+                "type": "delivery_time",
+                "name": "Delivery_time",
+                "limit": 1,
+                "settings":[
+                    {
+                        "type": "text",
+                        "id": "delivery_time_text",
+                        "label": "Delivery time title",
+                        "default": "Fri fragt over 399 krHurtig levering 1-2 hverdage"
+                    }
+                ]
             }
         ]
     }

@@ -3,9 +3,12 @@
         "template": {
             "type": "template-collection"
         },
-        "sub-collection":{
-            "type": "collection-sub-collections"
+        "related-collection":{
+            "type": "main-collection"
+        },
+        "new-collection":{
+            "type": "secondary-collection"
         }
     },
-    "order": ["template", "sub-collection"]
+    "order": ["template", "related-collection", "new-collection"]
 }

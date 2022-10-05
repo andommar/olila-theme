@@ -20,6 +20,9 @@
                 "checkout_buttons",
                 "description"
             ]
+        },
+        "collection": {
+            "type": "main-collection" 
         }
         // "new-collection":{
         //     "type": "main-collection"
@@ -28,5 +31,5 @@
         //     "type": "main-populars"
         // }
     },
-    "order": ["template"]
+    "order": ["template", "collection"]
 }
