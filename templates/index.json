@@ -34,6 +34,7 @@
           "type": "category_card",
           "settings": {
             "title": "Category",
+            "image": "shopify:\/\/shop_images\/kidspige.png",
             "button_text": "Shop nu"
           }
         },
