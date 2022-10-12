@@ -1,32 +1,54 @@
 {
   "sections": {
-    "template-hero":{
-      "type": "main-hero"
+    "template-hero": {
+      "type": "main-hero",
+      "settings": {
+        "headline_top": "Mid season 21",
+        "headline_bottom": "NY kollektion",
+        "hero_image": "shopify:\/\/shop_images\/MarMar-CC21-Image-25_1.png",
+        "bg_hero_color": "#9a684b",
+        "button_url": "",
+        "button_text": "Shop nu"
+      }
     },
-    "categories":{
-      "type": "main-categories"
+    "categories": {
+      "type": "main-categories",
+      "settings": {
+        "title": "HVEM SHOPPER DU TIL?"
+      }
     },
-    "new-collection":{
+    "new-collection": {
       "type": "main-collection",
       "settings": {
-        "main-collection": "all"
+        "text_title": "Nyheder",
+        "featured_collection": "",
+        "number_of_products_to_show": 4,
+        "see_all_checkbox": true,
+        "background_color": "#FFFFFF"
       }
     },
-    "popular-collection":{
+    "popular-collection": {
       "type": "main-populars",
       "settings": {
-        "main-populars": "all"
+        "text_title": "Nyheder",
+        "featured_collection": "",
+        "number_of_products_to_show": 4
       }
     },
-    "template-contact-info":{
-      "type": "main-info"
+    "template-contact-info": {
+      "type": "main-info",
+      "settings": {
+        "text_title": "Nyheder",
+        "featured_collection": "",
+        "background_color": ""
+      }
     }
-    // "featured-collection": {
-    //   "type": "featured-collection",
-    //   "settings": {
-    //     "featured_collection": "all"
-    //   }
-    // }
   },
-  "order": ["template-hero","categories","new-collection","popular-collection","template-contact-info"]
+  "order": [
+    "template-hero",
+    "categories",
+    "new-collection",
+    "popular-collection",
+    "template-contact-info"
+  ]
 }
