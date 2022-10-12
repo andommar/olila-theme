@@ -13,6 +13,19 @@
     },
     "categories": {
       "type": "main-categories",
+      "blocks": {
+        "c3b1d83b-28fe-4bf0-9b84-66fb36bbc5e4": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "image": "shopify:\/\/shop_images\/babydreng.png",
+            "button_text": "Shop nu"
+          }
+        }
+      },
+      "block_order": [
+        "c3b1d83b-28fe-4bf0-9b84-66fb36bbc5e4"
+      ],
       "settings": {
         "title": "HVEM SHOPPER DU TIL?"
       }
