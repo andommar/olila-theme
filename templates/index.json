@@ -21,10 +21,43 @@
             "image": "shopify:\/\/shop_images\/babydreng.png",
             "button_text": "Shop nu"
           }
+        },
+        "4f15b2eb-2b7f-4ceb-84ff-49b1b8fae0b5": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "image": "shopify:\/\/shop_images\/kidsdreng.png",
+            "button_text": "Shop nu"
+          }
+        },
+        "f8aa0f76-bb10-4127-becb-69233117d6e7": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "button_text": "Shop nu"
+          }
+        },
+        "353cb0c0-76c6-4627-8a56-897c03b7e048": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "button_text": "Shop nu"
+          }
+        },
+        "9cbe9583-8b5b-4872-adef-2a2e596784cb": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "button_text": "Shop nu"
+          }
         }
       },
       "block_order": [
-        "c3b1d83b-28fe-4bf0-9b84-66fb36bbc5e4"
+        "c3b1d83b-28fe-4bf0-9b84-66fb36bbc5e4",
+        "4f15b2eb-2b7f-4ceb-84ff-49b1b8fae0b5",
+        "f8aa0f76-bb10-4127-becb-69233117d6e7",
+        "353cb0c0-76c6-4627-8a56-897c03b7e048",
+        "9cbe9583-8b5b-4872-adef-2a2e596784cb"
       ],
       "settings": {
         "title": "HVEM SHOPPER DU TIL?"
