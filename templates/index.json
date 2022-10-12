@@ -76,21 +76,12 @@
         "see_all_checkbox": true,
         "background_color": "#ffffff"
       }
-    },
-    "template-contact-info": {
-      "type": "main-info",
-      "settings": {
-        "text_title": "Nyheder",
-        "featured_collection": "",
-        "background_color": ""
-      }
     }
   },
   "order": [
     "template-hero",
     "categories",
     "new-collection",
-    "a39877e2-e9d9-40a4-ba07-5690f0fec624",
-    "template-contact-info"
+    "a39877e2-e9d9-40a4-ba07-5690f0fec624"
   ]
 }
