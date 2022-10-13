@@ -11,6 +11,27 @@
     "checkout_accent_color": "#9a684b",
     "checkout_button_color": "#745044",
     "checkout_error_color": "#915151",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "store_logo": "shopify:\/\/shop_images\/olila-logo.png"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "newsletter_title_1": "Spar 10% på første køb ved",
+          "newsletter_title_2": "tilmelding af nyhedsbrev",
+          "instagram_url": "",
+          "facebook_url": "",
+          "text_title": "Nyheder",
+          "featured_collection": "",
+          "background_color": ""
+        }
+      }
+    },
     "content_for_index": [
 
     ]

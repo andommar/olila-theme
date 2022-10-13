@@ -1,32 +1,87 @@
 {
   "sections": {
-    "template-hero":{
-      "type": "main-hero"
+    "template-hero": {
+      "type": "main-hero",
+      "settings": {
+        "headline_top": "Mid season 21",
+        "headline_bottom": "NY kollektion",
+        "hero_image": "shopify:\/\/shop_images\/MarMar-CC21-Image-25_1.png",
+        "bg_hero_color": "#9a684b",
+        "button_url": "",
+        "button_text": "Shop nu"
+      }
     },
-    "categories":{
-      "type": "main-categories"
+    "categories": {
+      "type": "main-categories",
+      "blocks": {
+        "c3b1d83b-28fe-4bf0-9b84-66fb36bbc5e4": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "image": "shopify:\/\/shop_images\/babydreng.png",
+            "button_text": "Shop nu"
+          }
+        },
+        "4f15b2eb-2b7f-4ceb-84ff-49b1b8fae0b5": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "image": "shopify:\/\/shop_images\/kidsdreng.png",
+            "button_text": "Shop nu"
+          }
+        },
+        "f8aa0f76-bb10-4127-becb-69233117d6e7": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "image": "shopify:\/\/shop_images\/kidspige.png",
+            "button_text": "Shop nu"
+          }
+        },
+        "83476fcd-0037-476c-9476-ae7589404ab5": {
+          "type": "category_card",
+          "settings": {
+            "title": "Category",
+            "image": "shopify:\/\/shop_images\/babypige.png",
+            "button_text": "Shop nu"
+          }
+        }
+      },
+      "block_order": [
+        "c3b1d83b-28fe-4bf0-9b84-66fb36bbc5e4",
+        "4f15b2eb-2b7f-4ceb-84ff-49b1b8fae0b5",
+        "f8aa0f76-bb10-4127-becb-69233117d6e7",
+        "83476fcd-0037-476c-9476-ae7589404ab5"
+      ],
+      "settings": {
+        "title": "HVEM SHOPPER DU TIL?"
+      }
     },
-    "new-collection":{
+    "new-collection": {
       "type": "main-collection",
       "settings": {
-        "main-collection": "all"
+        "text_title": "Nyheder",
+        "featured_collection": "gaver-dabsgaver",
+        "number_of_products_to_show": 4,
+        "see_all_checkbox": true,
+        "background_color": "#FFFFFF"
       }
     },
-    "popular-collection":{
-      "type": "main-populars",
+    "a39877e2-e9d9-40a4-ba07-5690f0fec624": {
+      "type": "secondary-collection",
       "settings": {
-        "main-populars": "all"
+        "text_title": "POPULÆRT I ØJEBLIKKET",
+        "featured_collection": "baby-sengetoj",
+        "number_of_products_to_show": 4,
+        "see_all_checkbox": true,
+        "background_color": "#ffffff"
       }
-    },
-    "template-contact-info":{
-      "type": "main-info"
     }
-    // "featured-collection": {
-    //   "type": "featured-collection",
-    //   "settings": {
-    //     "featured_collection": "all"
-    //   }
-    // }
   },
-  "order": ["template-hero","categories","new-collection","popular-collection","template-contact-info"]
+  "order": [
+    "template-hero",
+    "categories",
+    "new-collection",
+    "a39877e2-e9d9-40a4-ba07-5690f0fec624"
+  ]
 }
