@@ -1,0 +1,61 @@
+<div class="md:container md:mx-auto px-3">
+    <div class="mx-auto grid grid-cols-1 md:grid-cols-10 md:gap-10">
+        <div class="col-span-8">
+            <h2 class="font-bold">Order history</h2>
+            {%- paginate customer.orders by 1 -%}
+                {% if customer.orders.size > 0 %}
+                    <table class="w-full my-3 text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="py-3 px-6">
+                                    Order
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Date
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Payment status
+                                </th>
+                                <th scope="col" class="py-3 px-6">
+                                    Total
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%- for order in customer.orders -%}
+                                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                                    <td class="py-4 px-6 text-clr_primary hover:underline">
+                                        {{ order.name | link_to: order.customer_url}}
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        {{ order.created_at | time_tag: format: 'date' }}
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        <p class="rounded-full px-3 py-1">
+                                        {{ order.financial_status_label }}
+                                        </p>
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        {{ order.total_price | money_with_currency }}
+                                    </td>
+                                </tr>
+                            {%- endfor -%}
+                                
+
+                        </tbody>
+                    </table>
+                {% else %}
+                    You currently don't have any orders
+                {% endif %}
+                {% render: 'pagination', pagination: paginate %}
+            {%- endpaginate -%}
+        </div>
+        <div class="col-span-2">
+            <h2 class="font-bold">Account details</h2>
+            <div class="my-3">
+                {{ customer.default_address | format_address }}
+                <a href="{{routes.account_addresses_url}}" class="text-clr_primary hover:underline">View addresses</a>
+            </div>
+        </div>
+    </div>
+</div>

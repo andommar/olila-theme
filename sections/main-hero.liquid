@@ -7,15 +7,21 @@
         flex flex-col items-center justify-center md:inset-0 md:translate-x-0 md:translate-y-0 md:static md:w-1/2 ">
 
         {% if section.settings.headline_top != blank %}
-            <h1 class="uppercase whitespace-nowrap text-clr_primary_variaton font-bold text-3xl -my-4 md:-my-6 md:text-5xl">{{ section.settings.headline_top }}</h1>
+            <h1 class="uppercase whitespace-nowrap text-clr_primary_variaton font-bold text-3xl -my-4 md:-my-6 md:text-5xl">
+                {{ section.settings.headline_top }}
+            </h1>
         {% endif %}
 
         {% if section.settings.headline_bottom != blank %}
-            <h1 class="uppercase whitespace-nowrap text-clr_primary_variaton font-light text-3xl md:text-5xl">{{ section.settings.headline_bottom }}</h1>
+            <h1 class="uppercase whitespace-nowrap text-clr_primary_variaton font-light text-3xl md:text-5xl">
+                {{ section.settings.headline_bottom }}
+            </h1>
         {% endif %}
 
         <div class="my-3">
-          <a href="{{ section.settings.button_url }}" class="uppercase p-3 px-6 text-clr_primary font-bold bg-white rounded-full">{{section.settings.button_text}}</a>
+          <a href="{{ section.settings.button_url }}" class="uppercase p-3 px-6 text-clr_primary font-bold bg-white rounded-full">
+            {{section.settings.button_text}}
+            </a>
         </div>
       </div>
       <!-- Right item -->

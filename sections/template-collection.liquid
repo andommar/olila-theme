@@ -3,14 +3,7 @@
 <div class="px-4 py-8 md:container md:mx-auto bg-[#E5E5E5]">
     {% render 'breadcrumb' %}
     <div class=" md:px-10 grid grid-cols-1 md:grid-cols-10">
-        <!-- Sidebar -->
-        {%- assign collectionName = 'main-menu' -%}
-        {%- assign collectionName2 = collection.title -%}
-        {%- for link in linklists[collectionName].links -%}
-            {%- for childlink in linklists[collectionName2].links -%}
-                {{ childlink.title }}
-            {%- endfor -%}
-        {%- endfor -%}
+
         <div class="hidden md:block sidenav font-medium text-xs text-clr_navigation col-span-2">
             {%- for link in linklists.main-menu.links -%}
                 <a href={{ link.url }} class="block
@@ -21,10 +14,6 @@
                     {{link.title}}
                 </a>
             {%- endfor -%}
-            {%- comment -%} <a href="#" class="block">Collection</a>
-            <a href="#" class="block">Collection</a>
-            <a href="#" class="block">Collection</a>
-            <a href="#" class="block">Collection</a> {%- endcomment -%}
         </div>
         <!-- Content -->
         {% paginate collection.products by section.settings.number_of_products_per_page %}
@@ -38,17 +27,7 @@
                         <p>There are no products inside of this collection</p>
                     {% endfor %}
                 <div class="col-span-full mx-auto">
-                    {%- comment -%} {% if paginate.next %}
-                        <button id="load-more"
-                                onclick="loadMoreProducts()"
-                                class="px-4 py-2 text-base font-medium shadow bg-clr_primary_variaton hover:bg-clr_primary text-white" >
-                            Load more
-                        </button>
-                    {% endif %}
-                    <span>Showing 
-                        <span id="card-count"> 0 </span> of 
-                        <span id="card-total">{{ collection.all_products_count }}</span> cards      
-                    </span> {%- endcomment -%}
+
                     <div id="AjaxinatePagination">
 
                     {% if paginate.next %}
@@ -56,7 +35,6 @@
                     {% endif %}
                     </div>
                     
-                    {%- comment -%} {% render 'pagination', pagination: paginate %} {%- endcomment -%}
                 </div>
             </div>
 
@@ -68,19 +46,6 @@
     </div>
 </div>
 
-{%- comment -%} {% paginate collection.products by 3 %}
-    <div id="AjaxinateContainer" >
-      {% for product in collection.products %}
-        {{ product.title }}
-      {% endfor %}
-    </div>
-
-    <div id="AjaxinatePagination">
-      {% if paginate.next %}
-        <a href="{{ paginate.next.url }}" class="p-3 bg-black text-white">Loading More</a>
-      {% endif %}
-    </div>
-{% endpaginate %} {%- endcomment -%}
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
@@ -89,7 +54,6 @@ document.addEventListener("DOMContentLoaded", function() {
     offset: 10000,
     loadingText: 'Loading'
   });
-  console.log(endlessScroll)
 });
 </script>
 

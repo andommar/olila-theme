@@ -115,11 +115,14 @@ font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"> -->
             <div class="flex items-center md:justify-between space-x-3">
                 {% if shop.customer_accounts_enabled %}
                     {% if customer %}
-                        <div class="hidden md:block">
                             <a href="{{  routes.account_url }}">
-                                {% render 'icon-user' %}
+                                <div class="flex items-center justify-center hover:underline ">
+                                    {% render 'icon-user' %}
+                                    {% if customer %}
+                                        <span class="ml-1 text-xs">{{ customer.first_name }}</span>
+                                    {% endif %}
+                                </div>
                             </a>
-                        </div>
                     {% else %}
                         <a href="{{  routes.account_login_url  }}">
                             {% render 'icon-user' %}
@@ -136,9 +139,18 @@ font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"> -->
                     </a>
                 </div>
                 <div class="hidden md:block">
-                    <div id="search-btn">
+                    <form action="{{routes.search_url}}" method="get">
+                        <div class="relative w-36">
+                            <input type="search" name="q" class="px-3 p-3 bg-clr_header_bg rounded-full w-full focus:outline-none"
+                             placeholder="SØG" value="{{ search.terms | escape }}">
+                            <button type="submit" class="absolute right-[15px] bottom-4">
+                                {% render 'icon-search' %}
+                            </button>
+                        </div>
+                    </form>
+                    <!-- <div id="search-btn">
                         {% render 'icon-search' %}
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -149,7 +161,7 @@ font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"> -->
             <form action="{{ routes.search_url }}" method="get" class="mt-8">
                 <div class="relative text-gray-500 px-10 border">
                     <input type="search" name="q" placeholder="Search" class="w-full bg-white text-xl h-10 px-5 pr-10 rounded-full focus:outline-none">
-                    <button type="submit" class="absolute right-0 top-0 mt-2 mr-5 md:mr-20">
+                    <button type="submit" class="absolute right-0 top-0 mt-3 mr-5 md:mr-20">
                         {% render 'icon-search' %}
                     </button>
                     <button id="search-menu-btn-close" type="button" class="absolute left-0 mr-2 mt-2 text-gray-500">
@@ -165,6 +177,7 @@ font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md"> -->
     .no-scroll{
         overflow-y: hidden;
     }
+
 </style>
 
 

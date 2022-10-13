@@ -1,20 +1,17 @@
 {% if pagination.pages > 1 %}
     <nav role="navigation" class="flex justify-center my-8">
         {% if pagination.previous %}
-            <a href="{{ pagination.previous.url }}" class="border border-gray-600 text-gray-600
-             hover:bg-gray-600 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium">
-                Previous
+            <a href="{{ pagination.previous.url }}" class="hover:text-clr_primary mx-3">
+             {% render 'icon-left' %}
             </a>
         {% endif %}
 
         {% for part in pagination.parts %}
             {% if part.is_link %}
-                <a href="{{ part.url }}" class="border border-gray-600 text-gray-600 
-                hover:bg-gray-600 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium">
+                <a href="{{ part.url }}" class="text-lg hover:text-clr_primary mx-3">
                     {{ part.title }}
             {% else %}
-                <span class="border border-gray-600 bg-clr_primary_variaton
-                 text-gray-500 px-8 py-3 mx-1 rounded-sm font-medium">
+                <span class="text-lg text-clr_primary underline mx-3">
                     {{ part.title }}
                 </span>
             {% endif %}
@@ -23,9 +20,8 @@
         {% endfor %}
 
         {% if pagination.next %}
-            <a href="{{ pagination.next.url }}" class="border border-gray-600 text-gray-600
-            hover:bg-gray-600 hover:text-white px-8 py-3 mx-1 rounded-sm font-medium">
-                Next
+            <a href="{{ pagination.next.url }}" class="hover:text-clr_primary">
+             {% render 'icon-right' %}
             </a>
         {% endif %}
     </nav>

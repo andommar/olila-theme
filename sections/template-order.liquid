@@ -1,0 +1,74 @@
+<div class="md:container md:mx-auto px-3">
+    <div class="mx-auto flex items-center justify-between">
+        <div class="items">
+            <h2 class="text-xl font-bold">{{order.name}}</h2>
+            <p class="text-clr_navigation ">Placed on {{order.created_at | date: format: 'date'}}</p>
+            <span class="rounded-full px-4 py-1 bg-clr_secondary text-white my-2">{{order.financial_status_label}}</span>
+        </div>
+        <a href="{{ routes.account_url }}" class="text-clr_primary hover:underline">Back to account</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-10 md:gap-3">
+        <div class="col-span-8 border border-gray-200 p-2 my-3">
+            {% for line_item in order.line_items %}
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-clr_primary underline hover:text-clr_secondary">{{line_item.title | link_to: line_item.product.url}}</p>
+                        <p class="text-xs font-normal"><span class="font-bold mr-2">Price: </span>{{line_item.original_price | money}}</p>
+                        <p class="text-xs font-normal"><span class="font-bold mr-2">Quantity:</span> {{line_item.quantity}}</p>
+                        <p class="text-xs font-normal"><span class="font-bold mr-2">Final price:</span> {{line_item.final_line_price | money}}</p>
+                        <p class="text-xs font-normal"><span class="font-bold mr-2">Final price:</span> {{line_item.final_line_price | money}}</p>
+
+                        {% if line_item.successfully_fulfilled_quantity > 0 %}
+                            <p class="text-xs font-normal"><span class="font-bold mr-2">We have fulfilled: </span>{{line_item.successfully_fulfilled_quantity }} items of your recent order</p>
+                            <p class="text-xs font-normal"><span class="font-bold mr-2">Tracking company: </span>{{line_item.fulfillment.tracking_company }} </p>
+                            <p class="text-xs font-normal"><span class="font-bold mr-2">Tracking number: </span>{{line_item.fulfillment.tracking_number }} </p>
+                            <a class="text-xs my-2 px-4 py-1 rounded-full bg-clr_secondary text-white font-bold" href="{{line_item.fulfillment.tracking_url}}">
+                                Track order
+                                {%- comment -%} <span class="text-black">{% render 'icon-external-url' %}</span> {%- endcomment -%}
+                            </a>
+                        {% else %}
+                            <p class="text-xs font-normal">This item is not yet fulfilled</p>
+                        {% endif %}
+                    </div>
+                    {% if line_item.image %}
+                        <img class="max-w-[220px] max-h-[220px] object-cover" src={{ line_item.image| img_url: 'medium' }} alt="{{line_item.image.alt}}">
+                    {% else %}
+                        {{ 'product-1' | placeholder_svg_tag: 'max-w-[220px] max-h-[220px] object-cover' }}
+                    {% endif %}
+                </div>
+            {% endfor %}
+        <div>
+            <table class="table-auto w-full my-4">
+                <tbody>
+                    <tr>
+                        <td class="border text-bold border-gray-200 px-4 py-2">Subtotal</td>
+                        <td class="border text-right border-gray-200 px-4 py-2">{{ order.subtotal_price | money }}</td>
+                    </tr>
+                    <tr>
+                        <td class="border text-bold border-gray-200 px-4 py-2">Shipping</td>
+                        <td class="border text-right border-gray-200 px-4 py-2">{{ order.shipping_price | money }}</td>
+                    </tr>
+                    <tr>
+                        <td class="border text-bold border-gray-200 px-4 py-2">Total</td>
+                        <td class="border text-right border-gray-200 px-4 py-2">{{ order.total_price | money }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+        <div class="col-span-2 border border-gray-200 p-2 my-3">
+            <div class="my-2">
+                <h3 class="font-bold">Delivery address</h3>
+                <div>
+                    {{ order.shipping_address | format_address }}
+                </div>
+            </div>
+            <div class="my-2">
+                <h3 class="font-bold">Billing address</h3>
+                <div>
+                    {{ order.billing_address | format_address }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
