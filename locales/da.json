@@ -528,7 +528,44 @@
         "shopify_pay": {
           "order_completed_html": "Ordre gennemført med %{shopify_pay}",
           "learn_more_label": "Lær mere om Shop Pay"
-        }
+        },
+        "title": "Tak for dit køb!",
+        "confirmation_email_sent_text": "En bekræftelses-e-mail er blevet sendt til %{email}",
+        "return_to_store_link_label": "Fortsætte med at handle",
+        "print_link_label": "Udskriv kvittering",
+        "payment_information_title": "Betalingsinformation",
+        "shipping_information_title": "Forsendelsesinformation",
+        "page_title": "Tak %{display_name}!",
+        "page_title_no_name": "Tak skal du have!",
+        "cancelled_page_title": "Ordren annulleret",
+        "customer_information_title": "Kunde information",
+        "contact_information_title": "Kontakt information",
+        "billing_address_title": "Betalingsadresse",
+        "company_location_title": "Beliggenhed",
+        "shipping_address_title": "Leveringsadresse",
+        "shipping_address_map_title": "Google-kort, der viser præcist forsendelsesadresse: %{address}",
+        "payment_method_title": "Betalingsmetode",
+        "shipping_method_title": "Fragtmetode",
+        "tracking_number": "Tracking nummer:",
+        "company_tracking_number": "%{company} sporingsnummer:",
+        "estimated_arrival": "Forventet leveringsdato:",
+        "estimated_delivery": "Forventet levering",
+        "re-order": "Genbestil de samme varer",
+        "confirmed": "Bekræftet",
+        "gift_card_confirmation_by_text": "Gavekort sendes med sms. Hvis du ikke har modtaget din, så prøv at sende dem igen eller kontakt os.",
+        "gift_card_confirmation_by_email": "Gavekort sendes på mail. Hvis du ikke har modtaget din, så prøv at sende dem igen eller kontakt os.",
+        "gift_card_title": "Gavekort",
+        "resend_gift_cards": "Send gavekort igen",
+        "thank_you_title": "Din ordre er bekræftet",
+        "thank_you_title_payment": "Din betaling er bekræftet",
+        "thank_you_title_review": "Din ordre er blevet sendt til gennemgang",
+        "thank_you_confirmed_order_with_email": "Du vil snart modtage en bekræftelses-e-mail med dit ordrenummer.",
+        "thank_you_confirmed_order_with_phone": "Du vil snart modtage en bekræftelsessms med dit ordrenummer.",
+        "thank_you_confirmed_order_with_email_and_phone": "Du vil snart modtage en bekræftelses-e-mail og en sms med dit ordrenummer.",
+        "thank_you_confirmed_order_with_email_payment": "Du har foretaget en betaling på din ordre %{date}.",
+        "thank_you_confirmed_order_with_phone_payment": "Du har foretaget en betaling på din ordre %{date}.",
+        "thank_you_confirmed_order_with_email_and_phone_payment": "Du har foretaget en betaling på din ordre %{date}.",
+        "thank_you_confirmed_order_with_email_pick_up": "Du modtager en e-mail, når din ordre er klar til afhentning."
       },
       "customer_account": {
         "not_user_label": "Ikke %{first_name}?",
@@ -566,6 +603,101 @@
           "other": "Disse produkter er ikke tilgængelige i dit land\/område."
         },
         "unavailable_label": "Ikke tilgængelig"
+      },
+      "payment_errors": {
+        "paypal_zero_amount": "Du kan ikke bruge PayPal til %{amount} ordrer. Bekræft, at din ordre er korrekt, og tjek ud uden PayPal.",
+        "paypal_invalid_token": "PayPal var ikke tilgængelig. Prøv igen, eller brug en anden betalingsmulighed.",
+        "pay_later_failed": "Der opstod en fejl under behandling af din betaling med Pay senere. Vælg en anden betalingsmetode, og prøv igen.",
+        "three_d_secure_failed": "Din betaling kunne ikke bekræftes. Prøv igen, eller brug en anden betalingsmetode.",
+        "three_d_secure_failed_duplicate": "Kreditkortets 3D Secure-godkendelse mislykkedes, fordi en anden allerede er i gang.",
+        "three_d_secure_throttled": "For mange forsøg; vent venligst, før du prøver igen",
+        "subscription_agreement_blank": "For at købe et abonnement skal dine betalingsoplysninger gemmes. For at fortsætte skal du bekræfte, at du accepterer eller fjerne abonnementsvarer fra din ordre.",
+        "insufficient_funds": "Din betaling blev afvist på grund af utilstrækkelige midler. Prøv igen, eller brug en anden betalingsmetode.",
+        "fraud_payment_errors": {
+          "transaction_declined": "Denne transaktion er blevet afvist",
+          "address_mismatch": "Gadeadresse og postnummer stemmer ikke overens.",
+          "cannot_process": "Denne transaktion kan ikke behandles.",
+          "no_match": "Intet match",
+          "card_declined": "Dit kort blev afvist"
+        }
+      },
+      "shipping_errors": {
+        "shipping_method": "Din indkøbskurv er blevet opdateret, og den tidligere forsendelsespris er ikke gyldig. Vælg en ny sats.",
+        "shipping_method_not_available": "Din indkøbskurv er blevet opdateret, og de varer, du tilføjede, kan ikke sendes til din adresse. Fjern varerne for at fuldføre din ordre.",
+        "shipping_method_not_available_generic": {
+          "one": "Denne ordre kan ikke sendes til den adresse, du har indtastet. Gennemgå din adresse for at sikre, at alle felter er indtastet korrekt, og prøv igen.",
+          "other": "Nogle varer i din indkøbskurv kan ikke sendes til den adresse, du har indtastet. Gennemgå din adresse for at sikre, at alle felter er indtastet korrekt, og prøv igen."
+        },
+        "shipping_method_not_available_updated": {
+          "one": "Den vare, du tilføjede, sendes ikke til din placering. Fjern den for at tjekke ud, eller kontakt butikken.",
+          "other": "En eller flere varer, du tilføjede, sendes ikke til din placering. Fjern dem for at tjekke ud, eller kontakt butikken."
+        },
+        "payment_method_not_supported": "Du kan ikke bruge denne betalingsmetode for %{country}. Brug venligst en anden betalingsmetode til at sende til dette land."
+      },
+      "alternative_payment_method_banner": {
+        "express_checkout": "Hurtig udtjekning",
+        "or": "ELLER"
+      },
+      "alternative_payment_method": {
+        "button_html": "Kasse med: %{method}",
+        "button_label": "Kasse med: %{method}"
+      },
+      "paypal": {
+        "button_html": "Kasse med %{logo}"
+      },
+      "apple_pay": {
+        "button_html": "Køb med %{logo}"
+      },
+      "post_purchase": {
+        "page_title": "Efterkøb",
+        "title": "Efterkøb",
+        "escape_confirmation": "Du har betalt for din ordre.",
+        "escape_action": "Se ordrebekræftelse ›",
+        "components": {
+          "close": "Tæt",
+          "expand": "Se mere",
+          "processing": "Forarbejdning…",
+          "submit": "Indsend"
+        }
+      },
+      "processing": {
+        "redirecting_page_title": "Omdirigerer...",
+        "redirecting_title": "Omdirigerer...",
+        "redirecting_notice": "Vent, mens vi omdirigerer dig.",
+        "complete_your_purchase_title": "Gennemfør dit køb",
+        "continue_to_payment_gateway_notice": "Fortsæt til betaling for at tilføje dine betalingsoplysninger.",
+        "continue_to_payment_gateway_button_label": "Fortsæt med betaling",
+        "complete_your_purchase_title_error": "Ret dine betalingsoplysninger",
+        "continue_to_payment_gateway_notice_error": "Dine betalingsoplysninger kunne ikke bekræftes.",
+        "continue_to_payment_gateway_button_label_error": "Opdater betalingsoplysninger",
+        "page_title": "Behandler ordre",
+        "title": "Behandler ordre",
+        "your_order_has_been_received_title": "Tak for din ordre",
+        "you_will_receive_confirmation": "Vi får mange ordrer lige nu. Du bør snart modtage bekræftelse via e-mail eller sms. Hvis du ikke modtager den inden for den næste time, så lad os det vide.",
+        "you_will_not_be_charged": "Du bliver ikke debiteret endnu",
+        "wait": {
+          "short": "Din ordre behandles.",
+          "medium": {
+            "one": "Din ordre behandles. Estimeret ventetid er %{count} minut.",
+            "other": "Din ordre behandles. Estimeret ventetid er %{count} minutter."
+          },
+          "long": "Du modtager en e-mail, så snart din ordre er behandlet. Der er i øjeblikket et stort antal ordrer.",
+          "no_auto_refresh_html": "Hvis du ikke automatisk bliver omdirigeret, %{link}.",
+          "refresh_this_page": "opdatere denne side"
+        }
+      },
+      "failed_payment": {
+        "page_title": "Betalingen kunne ikke behandles",
+        "title": "Betalingen kunne ikke behandles",
+        "payment_not_processed_title": "Din betaling kunne ikke behandles",
+        "payment_not_processed_text": "Du er ikke blevet debiteret. Vend tilbage til din indkøbskurv for at gennemføre dit køb.",
+        "return_to_cart_button_label": "Tilbage til indkøbskurven"
+      },
+      "payment_gateway": {
+        "credit_card_label": "Kreditkort",
+        "bank_deposit_label": "Bank depositum",
+        "cash_on_delivery_label": "efterkrav (efterkrav)",
+        "money_order_label": "Postanvisning"
       }
     }
   },
