@@ -699,6 +699,42 @@
         "cash_on_delivery_label": "efterkrav (efterkrav)",
         "money_order_label": "Postanvisning"
       }
+    },
+    "page_titles": {
+      "search_results": {
+        "other": "Søgning: %{count} resultater fundet for \"%{terms}\""
+      },
+      "collections": "Samlinger",
+      "not_found": "404 Ikke fundet",
+      "challenge": "Udfordring",
+      "checkpoint": "Kontrolpunkt"
+    },
+    "cart": {
+      "discounts_with_count": "%{count} rabatter er blevet anvendt"
+    },
+    "challenge": {
+      "message": "Fortsæt ved at fortælle os, at du ikke er en robot.",
+      "error": "Dit svar var ikke korrekt, prøv venligst igen.",
+      "submit_button_text": "Indsend"
+    },
+    "checkpoint": {
+      "message": "Løs Captcha for at fortsætte",
+      "error": "Captcha-validering mislykkedes",
+      "submit_button_text": "Indsend"
+    },
+    "store_availability": {
+      "pick_up_time": {
+        "one_hour": "Normalt klar på 1 time",
+        "two_hours": "Normalt klar på 2 timer",
+        "four_hours": "Normalt klar på 4 timer",
+        "twenty_four_hours": "Normalt klar på 24 timer",
+        "two_to_four_days": "Normalt klar på 2-4 dage",
+        "five_or_more_days": "Normalt klar om 5+ dage",
+        "zero_to_two_hours": "Normalt klar på 2 timer",
+        "two_to_four_hours": "Normalt klar på 4 timer",
+        "immediately": "Klar til afhentning nu",
+        "next_day": "Klar til afhentning næste dag"
+      }
     }
   },
   "customer_accounts": {
@@ -877,7 +913,8 @@
             "due_without_date": "Betalingsfrist",
             "due_on_fulfillment": "Betaling ved opfyldelse",
             "pay_to_confirm": "Betal for at bekræfte",
-            "payment_not_due": "Betaling endnu ikke forfalden"
+            "payment_not_due": "Betaling endnu ikke forfalden",
+            "overdue": "Betaling forsinket"
           },
           "table_view": {
             "overdue": "Forsinket",
@@ -913,7 +950,47 @@
             "descending": "Ordre i alt (høj til lav)"
           }
         },
-        "table_view": "Vis tabelvisning"
+        "table_view": "Vis tabelvisning",
+        "column_headers": {
+          "delivery_date": "Leveringsdato",
+          "items": "genstande",
+          "order_date": "Bestillingsdato",
+          "order_number": "Ordrenummer",
+          "status": "Ordre status",
+          "payment_status": "Betalingsstatus",
+          "total": "i alt"
+        },
+        "delivered": "Leveret {{date}}",
+        "empty_state_order_source_description": "Kun ordrer afgivet af {{email}} vises her.",
+        "empty_state_subtitle": "Gå til butikken for at afgive en ordre.",
+        "empty_state_title": "Ingen ordre endnu",
+        "estimated": "Estimeret {{date}}",
+        "estimated_shortform": "Est. {{date}}",
+        "estimated_delivery": "Forventet levering {{date}}",
+        "one_images_accessibility_label": "Ordren inkluderer {{lineItemName1}}",
+        "two_images_accessibility_label": "Ordren inkluderer {{lineItemName1}} , {{lineItemName2}}",
+        "three_images_accessibility_label": "Ordren inkluderer {{lineItemName1}} , {{lineItemName2}} , {{lineItemName3}}",
+        "four_images_accessibility_label": "Ordren inkluderer {{lineItemName1}} , {{lineItemName2}} , {{lineItemName3}} , {{lineItemName4}}",
+        "items": {
+          "one": "{{count}} element",
+          "other": "{{count}} elementer"
+        },
+        "list_view": "Vis listevisning",
+        "multiple_shipments": "Flere forsendelser",
+        "no_filtered_results_description": "Fjern eller juster filtre for at se dine ordrer",
+        "no_filtered_results_title": "Ingen filtrerede resultater",
+        "order_link": "Se ordre {{name}}",
+        "order_number": "Bestil {{name}}",
+        "orders_title": "Bekræftet",
+        "pagination": {
+          "nav_accessibility_label": "Bestiller navigationsknapper",
+          "next": "Næste",
+          "next_accessibility_label": "Næste ordre",
+          "previous": "Forrige",
+          "previous_accessibility_label": "Tidligere ordrer",
+          "load_more": "Indlæs mere",
+          "load_more_accessibility_label": "Indlæs flere ordrer"
+        }
       },
       "order_status": {
         "attempted_delivery_label": "Forsøgte levering",
@@ -953,7 +1030,66 @@
         "request_return": "Anmod om retur"
       },
       "status_mark_as_delivered": "Mærk som leveret",
-      "status_title": "Ordre status"
+      "status_title": "Ordre status",
+      "list_layout_accessibility_label": "Layout muligheder",
+      "list_title": "Ordre:% s"
+    },
+    "navigation_and_structure": {
+      "account_menu": {
+        "hide_accessibility_label": "Skjul kontomenu",
+        "label": "Konto",
+        "show_accessibility_label": "Vis kontomenu"
+      },
+      "action_menu_accessibility_label": "flere handlinger",
+      "close_menu_accessibility_label": "Luk hovednavigation",
+      "contact_email_subject": "Kontakt fra {{shopName}} onlinebutik",
+      "contact_link": "Kontakt os",
+      "delete_confirmation": {
+        "cancel": "Afbestille",
+        "delete": "Slet"
+      },
+      "dismiss_toast": "Afskedige",
+      "document_title": "{{sectionName}} - {{shopName}} - Konto",
+      "go_to_store_link": "Gå i butikken",
+      "loading_message": "Indlæser",
+      "log_out_link": "Log ud",
+      "login_prompt": {
+        "continue": "Blive ved",
+        "privacy": "Privatliv",
+        "title": "Fortsæt med at logge ind"
+      },
+      "logout_overlay_label": "Logger dig ud...",
+      "nav_label_accessibility_label": "Hovednavigation",
+      "navigation_accessibility_message": "Du navigerede til {{sectionName}}",
+      "open_menu_accessibility_label": "Åbn hovednavigationen",
+      "orders_link_label": "Ordre:% s",
+      "shop_logo_accessibility_label": "{{shopName}} logo"
+    },
+    "account_information": {
+      "loading_accessibility_message": "Indlæser kontooplysninger",
+      "loading_finished_accessibility_message": "Kontooplysninger er indlæst",
+      "profile_card": {
+        "cancel": "Afbestille",
+        "cancel_accessibility_label": "Annuller redigering af profil",
+        "edit": "Redigere",
+        "edit_accessibility_label": "Rediger profil",
+        "email_help_text": "E-mail brugt til login kan ikke ændres",
+        "first_name": "Fornavn",
+        "last_name": "Efternavn",
+        "phone_number_help_text": "Telefonnummer brugt til login kan ikke ændres",
+        "save": "Gemme",
+        "save_accessibility_label": "Gem profil",
+        "title": "Profil"
+      },
+      "profile_update_confirmation_message": "Profil opdateret",
+      "title": "Kontooplysninger",
+      "people": {
+        "pagination": {
+          "load_more": "Indlæs mere",
+          "load_more_accessibility_label": "Indlæs flere mennesker",
+          "loading_accessibility_label": "Indlæser mennesker"
+        }
+      }
     }
   }
 }
