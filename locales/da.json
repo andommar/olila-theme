@@ -1,0 +1,249 @@
+{
+  "shopify": {
+    "sentence": {
+      "two_words_connector": "og",
+      "last_word_connector": ", og"
+    },
+    "checkout": {
+      "general": {
+        "error_page_title": "Fejl",
+        "skip_to_content": "Gå til indhold",
+        "breadcrumb": "Brødkrumme",
+        "continue_button_label": "Blive ved",
+        "complete_purchase_button_label": "Fuldfør ordre",
+        "pay_now_button_label": "Betal nu",
+        "authenticate_purchase_button_label": "Godkend betaling",
+        "edit_link_label": "Redigere",
+        "all_rights_reserved": "Alle rettigheder forbeholdes %{shop_name}",
+        "cart": "Vogn",
+        "close_modal_label": "Tæt",
+        "close_notice_label": "Tæt",
+        "expand_notice_label": "Se mere",
+        "continue_to_shipping_method": "Fortsæt med at sende",
+        "continue_to_payment_method": "Fortsæt med betaling",
+        "continue_to_review": "Gennemgå ordre",
+        "back_to_cart": "Tilbage til indkøbskurven",
+        "back_to_contact_information": "Vend tilbage til information",
+        "back_to_shipping_method": "Tilbage til forsendelse",
+        "back_to_payment_method": "Tilbage til betaling",
+        "choose_shipping_method": "Vælg en forsendelsesmetode",
+        "choose_payment_method": "Vælg en betalingsmetode",
+        "choose_billing_address": "Vælg en faktureringsadresse",
+        "contact_us_html": "Kontakt os for mere information",
+        "autocomplete_title": "Forslag",
+        "autocomplete_single_item": "1 vare tilgængelig",
+        "autocomplete_multi_item": "{{number}} tilgængelige varer",
+        "autocomplete_close": "Luk forslag",
+        "forwarding_indicator": {
+          "new_window": "Åbner i et nyt vindue.",
+          "external": "Åbner ekstern hjemmeside.",
+          "external_and_new_window": "Åbner ekstern hjemmeside i et nyt vindue."
+        },
+        "checkout_context": {
+          "step_one": "%{shop_name} - kassen"
+        },
+        "tooltip_accessibility_label": "Mere information",
+        "errors": {
+          "session_identifier_not_unique_error": "Der gik noget galt med din ordre. Prøv venligst at tjekke ud igen."
+        },
+        "full_price": "Fuld pris:"
+      },
+      "contact": {
+        "address_title": "Adresse",
+        "shipping_address_title": "Leveringsadresse",
+        "delivery_option_title": "Leveringsmetode",
+        "contact_method_title": "Kontakt information",
+        "email_label": "E-mail",
+        "email_placeholder": "E-mail",
+        "email_or_phone_label": "E-mail eller mobiltelefonnummer",
+        "email_or_phone_placeholder": "E-mail eller mobiltelefonnummer",
+        "stored_addresses_label": "Gemte adresser",
+        "new_address_label": "Brug en ny adresse",
+        "first_name_label": "Fornavn",
+        "optional_first_name_label": "Fornavn (valgfrit)",
+        "last_name_label": "Efternavn",
+        "company_label": "Selskab",
+        "optional_company_label": "Virksomhed (valgfrit)",
+        "address1_label": "Adresse",
+        "address2_label": "Lejlighed, suite mv.",
+        "optional_address2_label": "Lejlighed, suite osv. (valgfrit)",
+        "city_label": "By",
+        "country_label": "Land\/region",
+        "country_code": "Lande-\/regionskode",
+        "province_label": "Provins",
+        "province_placeholder": "Provins",
+        "county_label": "Amt",
+        "county_placeholder": "Amt",
+        "state_label": "Stat",
+        "state_placeholder": "Stat",
+        "region_label": "Område",
+        "region_placeholder": "Område",
+        "region_none": "Ingen valgt",
+        "prefecture_label": "Præfektur",
+        "prefecture_placeholder": "Præfektur",
+        "emirate_label": "Emirat",
+        "emirate_placeholder": "Emirat",
+        "state_and_territory_label": "Stat\/territorium",
+        "state_and_territory_placeholder": "Stat\/territorium",
+        "phone_label": "telefon",
+        "optional_phone_label": "Telefon valgfri)",
+        "phone_placeholder": "telefon",
+        "phone_tooltip": "I tilfælde af at vi skal kontakte dig om din ordre",
+        "zip_code_label": "postnummer",
+        "zip_code_placeholder": "postnummer",
+        "postal_code_label": "Postnummer",
+        "postal_code_placeholder": "Postnummer",
+        "postcode_label": "Postnummer",
+        "postcode_placeholder": "Postnummer",
+        "pincode_label": "Pinkode",
+        "pincode_placeholder": "Pinkode",
+        "civic_number_warning": "Tilføj et husnummer, hvis du har et"
+      },
+      "delivery_options": {
+        "free_total_label": "Ledig",
+        "ship": "Skib",
+        "shipping_address": "Leveringsadresse",
+        "pick_up": "Saml op",
+        "pick_up_locations": "Afhentningssteder",
+        "pick_up_in_one_hour": "Normalt klar på 1 time",
+        "pick_up_in_two_hours": "Normalt klar på 2 timer",
+        "pick_up_in_four_hours": "Normalt klar på 4 timer"
+      },
+      "order_summary": {
+        "unit_price": {
+          "accessible_separator": "om"
+        },
+        "gift_card_ending": "Gavekort, der slutter med %{last_characters}",
+        "estimated_tax_label": "Anslået skat",
+        "multiple_shipping_lines_label": "Forsendelse i alt",
+        "recurring_subtotal_label": "Tilbagevendende subtotal",
+        "recurring_total_label": "Tilbagevendende total",
+        "recurring_total_tooltip": "Inkluderer ikke forsendelse, skat, told eller eventuelle gældende rabatter.",
+        "confirmation_number_label": "Bekræftelse #%{confirmation_number}",
+        "higher_value_discount_applied": "<strong style=\"text-transform:uppercase\">%{code}<\/strong> kunne ikke bruges med dine eksisterende rabatter. Du har allerede en bedre kombination.",
+        "percent_off_shipping": "%{percent}% rabat på forsendelse",
+        "amount_off_shipping": "%{amount} rabat på forsendelse",
+        "deferred_payment_info": {
+          "title": "Betaling på %{amount_due} forfalder den %{due_at}",
+          "description_html": "For spørgsmål om din ordre, %{contact_us}.",
+          "paid_today": "Samlet betalt i dag",
+          "due_on_fulfillment_title": "Betaling på %{amount_due} forfalder ved opfyldelse"
+        },
+        "payment_terms_totals": {
+          "due_today": "Samlet forfald i dag",
+          "due_later": "Samlet skyldig %{due_at}",
+          "due_on_fulfillment": "Samlet forfalder ved opfyldelse",
+          "due_later_checkout_to_draft": "Samlet forfalder senere"
+        },
+        "maximum_discount_code_limit_reached": "Du har nået det maksimale antal rabatkoder. Fjern en eksisterende kode for at bruge <strong style=\"text-transform:uppercase\">%{code}<\/strong> ."
+      },
+      "shipping": {
+        "title": "Forsendelse",
+        "shipping_method_title": "Fragtmetode",
+        "shipping_method_one_time_purchase_group_title": "Engangskøb",
+        "shipping_method_subscription_group_title": "Abonnement",
+        "subscription_shipping": "Abonnementsforsendelse",
+        "subscription_local_delivery": "Abonnement lokal levering",
+        "subscription_pickup": "Afhentning af abonnement",
+        "waiting_on_rate_notice": "Henter tilgængelige forsendelsespriser...",
+        "waiting_on_pickup_location_notice": "Henter tilgængelige afhentningssteder...",
+        "no_rates_for_cart_or_destination_notice": "Der er ingen tilgængelige forsendelsesmetoder for din indkøbskurv eller adresse",
+        "no_pickup_location_notice": "Mindst et af dine produkter kan ikke afhentes",
+        "no_rates_for_country_notice": "Der blev ikke fundet nogen forsendelsespriser for denne adresse.",
+        "no_rates_contact_notice": "Kontakt os for mere information",
+        "free_rate_label": "Ledig",
+        "cheapest_rate_label": "Billigst",
+        "please_enter_your_shipping_information_notice": "Indtast venligst dine forsendelsesoplysninger.",
+        "estimated_delivery_date": {
+          "one": "%{count} hverdag",
+          "other": "%{count} hverdage"
+        },
+        "estimated_delivery_date_range": "%{minimum} til %{maximum} hverdage",
+        "estimated_delivery_time": "Anslået leveringstid}",
+        "estimated_delivery_time_range": "Estimeret levering %{min_time}–%{max_time}",
+        "delivery_today": "Levering samme dag %{time}",
+        "delivery_tomorrow": "Levering næste dag %{time}",
+        "two_day_delivery": "2-dages levering %{time}",
+        "delivery": "Leveringstid}",
+        "arrives_time": "Ankommer %{time}",
+        "arrives_time_range": "Ankommer %{min_time}–%{max_time}",
+        "estimated_time": "Forventet tid}",
+        "estimated_time_range": "Estimeret %{min_time}–%{max_time}",
+        "shipping_line_phone_label": "Mobilnummer (påkrævet)",
+        "shipping_line_phone": "Din kurer kan bruge dette nummer til at kontakte dig.",
+        "shipping_line_delivery_phone_label": "Mobiltelefon nummer",
+        "shipping_line_delivery_phone": "Du kan blive kontaktet med opdateringer om din levering.",
+        "optional_shipping_line_delivery_instructions_label": "Leveringsvejledning (valgfrit)",
+        "shipping_line_delivery_instructions": "Indtast nødvendige oplysninger såsom dørkoder eller afleveringsinstruktioner.",
+        "other_method": {
+          "zero": "Ingen andre metoder tilgængelige",
+          "one": "%{count} anden metode tilgængelig på",
+          "other": "%{count} andre tilgængelige metoder fra kl"
+        },
+        "shipping_rate_discounted_amount": "Var: %{original_amount}. Nu: %{amount}",
+        "local_delivery": "Lokal levering",
+        "subscription_delivery_description": {
+          "prepaid_delivery_frequency": {
+            "one": "for %{count} levering",
+            "other": "for %{count} leverancer"
+          },
+          "subscription_delivery_frequency": {
+            "day": {
+              "one": "hver dag",
+              "other": "hver %{count} dag"
+            },
+            "week": {
+              "one": "hver uge",
+              "other": "hver %{count} uge"
+            },
+            "month": {
+              "one": "hver måned",
+              "other": "hver %{count} måned"
+            },
+            "year": {
+              "one": "hvert år",
+              "other": "hvert %{count} år"
+            }
+          },
+          "multiple_subscriptions_shipping_price_label": "%{shipping_price} pr. levering",
+          "prepaid_shipping_price_label": "%{shipping_price} pr. levering x %{delivery_interval_count}",
+          "initial_order_discounted": "Først forsendelsesomkostninger %{discounted_shipping_cost}, derefter %{frequency_description}",
+          "prepaid_initial_order_discounted": "Første forsendelsespris %{discounted_shipping_price} %{prepaid_delivery_frequency}",
+          "prepaid_initial_order_discounted_with_per_delivery_price": "Første forsendelsespris %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery})",
+          "prepaid_initial_order_discounted_with_renewal": "Første forsendelsesomkostning %{discounted_shipping_price} %{prepaid_delivery_frequency}, derefter %{shipping_price} %{billing_cycle}",
+          "prepaid_initial_order_discounted_with_per_delivery_price_and_renewal": "Første forsendelsespris %{discounted_shipping_price} %{prepaid_delivery_frequency} (%{discounted_cost_per_delivery}), derefter %{shipping_price} %{billing_cycle}",
+          "shipping_price_included": "Inkluderet",
+          "recurring_order_shipping_price": "efterfulgt af %{recurring_order_shipping_price}",
+          "first_order_shipping_price_included": "Første ordre inkluderet, efterfulgt af %{recurring_order_shipping_price}",
+          "first_order_different_shipping_price": "%{first_order_shipping_price} (%{per_delivery_price} pr. levering), efterfulgt af %{recurring_order_shipping_price}",
+          "first_n_order_free": {
+            "one": "Første ordre gratis",
+            "other": "Første %{count} ordrer er gratis"
+          },
+          "free_for_first_n_order": {
+            "one": "Til første ordre",
+            "other": "For første %{count} ordrer"
+          }
+        },
+        "one_time_purchase_shipping": "Engangsforsendelse"
+      },
+      "localized_fields": {
+        "additional_information": {
+          "title": "Yderligere Information"
+        }
+      },
+      "payment": {
+        "amazon_payments_login_hint": "Du bliver bedt om at logge ind med Amazon.",
+        "amazon_payments_logout": "Log ud fra Amazon Pay",
+        "amazon_payments_failed_mfa_challenge": "Den valgte betalingsmetode kunne ikke bruges. Vælg en anden metode, eller kontakt din bank eller kortudsteder.",
+        "amazon_payments_abandoned_mfa_challenge": "Din betaling kunne ikke gennemføres. Prøv en anden betalingsmetode, eller kontakt din bank eller kortudsteder.",
+        "amazon_payments_could_not_enqueue_authorize": "Der opstod et problem under behandlingen af din betaling. Prøv igen, eller brug en anden betalingsmetode.",
+        "title": "Betaling",
+        "amount_left_to_pay_label": "Betalingsfrist:",
+        "discount_button_action_label": "Anvend rabatkode",
+        "gift_card_code_label": "Gavekort kode",
+        "apply_gift_card_button_label": "ansøge"
+      }
+    }
+  }
+}
