@@ -702,12 +702,22 @@
     },
     "page_titles": {
       "search_results": {
-        "other": "Søgning: %{count} resultater fundet for \"%{terms}\""
+        "other": "Søgning: %{count} resultater fundet for \"%{terms}\"",
+        "one": "Søgning: %{count} resultat fundet for \"%{terms}\""
       },
       "collections": "Samlinger",
       "not_found": "404 Ikke fundet",
       "challenge": "Udfordring",
-      "checkpoint": "Kontrolpunkt"
+      "checkpoint": "Kontrolpunkt",
+      "blog_or_article_with_error": "Fejl - %{title}",
+      "products": "Produkter",
+      "shopping_cart": "Din indkøbskurv",
+      "account": "Konto",
+      "create_account": "Opret konto",
+      "reset_account": "Nulstil konto",
+      "addresses": "Adresser",
+      "order": "Ordre %{navn}",
+      "search": "Søg"
     },
     "cart": {
       "discounts_with_count": "%{count} rabatter er blevet anvendt"
@@ -734,6 +744,154 @@
         "two_to_four_hours": "Normalt klar på 4 timer",
         "immediately": "Klar til afhentning nu",
         "next_day": "Klar til afhentning næste dag"
+      }
+    },
+    "notices": {
+      "address": {
+        "updated": "Adressen er blevet opdateret.",
+        "error_updating": "Fejl ved opdatering af adresse",
+        "created": "Adressen er oprettet",
+        "error_creating": "Fejl ved oprettelse af adresse.",
+        "deleted": "Adressen blev slettet",
+        "error_deleting": "Fejl ved sletning af adresse."
+      },
+      "order": {
+        "not_available": "Denne ordre er ikke tilgængelig",
+        "financial_status": {
+          "authorized": "Autoriseret",
+          "pending": "Verserende",
+          "paid": "Betalt",
+          "unpaid": "Ubetalt",
+          "voided": "annulleret",
+          "partially_paid": "Delvist betalt",
+          "partially_refunded": "Delvist refunderet",
+          "refunded": "Refunderet",
+          "expired": "Udløbet"
+        },
+        "fulfillment_status": {
+          "fulfilled": "Opfyldt",
+          "complete": "Komplet",
+          "partial": "Delvis",
+          "unfulfilled": "Uopfyldt",
+          "restocked": "Genopbygget"
+        },
+        "transaction_status": {
+          "success": "Succes",
+          "pending": "Verserende",
+          "failure": "Fiasko",
+          "error": "Fejl"
+        },
+        "cancel_reason": {
+          "declined": "Betaling afvist",
+          "inventory": "Varer er ikke tilgængelige",
+          "fraud": "Svigagtig ordre",
+          "customer": "Kunden ændrede\/annullerede ordre",
+          "other": "Andet"
+        },
+        "cash_on_delivery": "efterkrav (efterkrav)"
+      },
+      "cart": {
+        "only_n_items_available": "Du kan kun tilføje %{count} %{name} til indkøbskurven.",
+        "too_many_items_in_cart": "Du kan ikke tilføje flere %{name} til indkøbskurven.",
+        "all_items_in_cart": "Alle %{count} %{name} er i din indkøbskurv.",
+        "empty_update": "kan ikke opdatere tom indkøbskurv",
+        "missing_parameters": "intet gyldigt id eller linjeparameter",
+        "generic_error": "Indkøbskurvfejl",
+        "product_not_available": "Produktet er ikke tilgængeligt",
+        "too_many_line_items_error": "Din indkøbskurv må ikke indeholde mere end %{max} varer.",
+        "link_expired": "Linket er udløbet",
+        "link_no_longer_exists": "Linket eksisterer ikke længere.",
+        "stock_problems_html": "En eller flere varer er ikke længere tilgængelige. Vi har leveret en <a href=\"%%7Blink%7D\">opdateret indkøbskurv<\/a> .",
+        "changed": "Kurven skiftet",
+        "items_changed": "En eller flere elementer er ændret.",
+        "product_sold_out": "Produktet '%{name}' er allerede udsolgt.",
+        "variant_not_found": "Kan ikke finde variant",
+        "variant_requires_selling_plan": "Variant kan kun købes med en salgsplan.",
+        "selling_plan_not_available_for_company_locations": "Kun engangskøb er tilgængeligt for B2B-ordrer",
+        "digital_product_not_available_for_company_locations": "Denne vare kan ikke føjes til en B2B-ordre",
+        "selling_plan_not_applicable": "Kan ikke anvende salgsplan på variant",
+        "shipping_address_not_required": "Denne kurv kræver ikke forsendelse",
+        "shipping_address_invalid": "Der opstod et problem med at beregne dine forsendelsespriser. Fortsæt til kassen for at vælge en forsendelsespris, før du gennemfører din ordre."
+      },
+      "storefront": {
+        "invalid_password": "Adgangskoden er forkert. Prøv venligst igen."
+      },
+      "tags": {
+        "add_articles": "Indsnævre søgningen til artikler, der også har tagget %{tag}",
+        "add_products": "Indsnævre udvalget til produkter, der matcher tag %{tag}",
+        "remove_articles": "Udvid søgning til artikler, der ikke er tagget %{tag}",
+        "remove_products": "Fjern tag %{tag}"
+      }
+    },
+    "email_marketing": {
+      "subscribed": {
+        "confirmation": "Tak fordi du abonnerer på vores mailingliste.",
+        "disclaimer": "Du kan til enhver tid afmelde dig.",
+        "unsubscribe": "Opsige abonnement"
+      },
+      "unsubscribed": {
+        "confirmation": "Du har afmeldt vores mailingliste.",
+        "disclaimer": "Du vil ikke modtage flere marketingopdateringer fra os. Du kan til enhver tid abonnere igen.",
+        "preview": "Du får vist, hvad kunderne vil se, når de afmelder sig."
+      },
+      "open_tracking": {
+        "opt_in": {
+          "opted_in_html": "<b>Du har valgt at åbne sporing via e-mail.<\/b>",
+          "visibility": "Åbningsrater for e-mail vil blive rapporteret anonymt. Vi vil kun se, om du har åbnet en e-mail som en del af en samlet åbningsrate for e-mail.",
+          "opt_out_html": "Du kan <a style=\"text-decoration:underline;\" href=\"%%7Blink%7D\">fravælge<\/a> e-mail åben sporing, hvis du ikke ønsker at dele disse oplysninger.",
+          "preview_bar": "Du ser et eksempel på, hvad kunderne vil se, når de tilmelder sig e-mail-sporing af åben åbning."
+        },
+        "opt_out": {
+          "opted_out_html": "<b>Du har fravalgt sporing af åben e-mail.<\/b>",
+          "visibility": "Vi vil ikke se, om du har åbnet vores e-mails.",
+          "opt_in_html": "<a style=\"text-decoration:underline;\" href=\"%%7Blink%7D\">Tilmeld dig åben sporing via<\/a> e-mail.",
+          "preview_bar": "Du får vist, hvad kunderne vil se, når de fravælger sporing af åben e-mail."
+        },
+        "no_longer_track": {
+          "status_html": "<b>Vi sporer ikke længere nogen e-mail-åbninger.<\/b>",
+          "privacy_policy": "Efter at denne e-mail blev sendt, har vi opdateret vores privatlivspolitik, og vi sporer ikke længere åbninger."
+        },
+        "track": {
+          "status_html": "<b>E-mail åben sporing rapporteres.<\/b>",
+          "visibility": "Vi vil kun se, om du har åbnet e-mailen, som en del af den samlede åbningsrate for e-mail."
+        },
+        "updated_policy": {
+          "status_html": "<b>E-mail åben sporing rapporteres.<\/b>",
+          "visibility": "Vi har opdateret vores politik, og nu åbner sporingsmails. Åbningsrater for e-mail vil blive rapporteret anonymt. Vi vil kun se, om du har åbnet en e-mail som en del af den samlede åbningsrate for e-mail.",
+          "opt_out_html": "Hvis du ikke ønsker at dele disse oplysninger, kan du <a style=\"text-decoration:underline;\" href=\"%%7Blink%7D\">afmelde dig.<\/a>"
+        }
+      }
+    },
+    "filters": {
+      "availability": {
+        "label": "Tilgængelighed",
+        "value": {
+          "in_stock": "På lager",
+          "out_of_stock": "Udsolgt"
+        }
+      },
+      "vendor": {
+        "label": "Mærke"
+      },
+      "price": {
+        "label": "Pris"
+      },
+      "product_type": {
+        "label": "Produkttype"
+      },
+      "boolean": {
+        "true_label": "Ja",
+        "false_label": "Ingen"
+      },
+      "tags": {
+        "label": "Flere filtre"
+      }
+    },
+    "search": {
+      "sorting": {
+        "relevance": "Relevans",
+        "price_ascending": "Pris, lav til høj",
+        "price_descending": "Pris, høj til lav"
       }
     }
   },
