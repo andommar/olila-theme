@@ -245,5 +245,129 @@
         "apply_gift_card_button_label": "ansøge"
       }
     }
+  },
+  "customer_accounts": {
+    "order_details": {
+      "subtitle": "Bekræftet {{date}}",
+      "summary_list_title_accessibility_label": "Bestil varer",
+      "summary_title": "Ordreoversigt",
+      "summary_totals_title_accessibility_label": "Ordretotaler",
+      "taxes": "Skatter",
+      "title": "Bestil {{name}}",
+      "total": "i alt",
+      "unit_price": "( {{price}} \/ea)",
+      "pagination": {
+        "load_more": "Indlæs mere",
+        "load_more_accessibility_label": "Indlæs flere varer",
+        "loading_accessibility_label": "Indlæser varer"
+      }
+    },
+    "addresses": {
+      "add_button": "Tilføj adresse",
+      "add_address_banner": "Tilføj adresser til brug ved kassen",
+      "address_deleted_notification": "Adresse slettet",
+      "cancel_adding_address_accessibility_label": "Annuller tilføjelse af adresse",
+      "cancel_deletion_button": "Afbestille",
+      "cancel_deletion_button_accessibility_label": "Annuller sletning af {{address}}",
+      "default_address": {
+        "title": "Standardadresse",
+        "title_accessibility_label": "Standardadresse: {{address}}"
+      },
+      "delete_button": "Slet",
+      "delete_button_accessibility_label": "Slet {{address}}",
+      "delete_confirmation_button": "Slet adresse",
+      "delete_confirmation_button_accessibility_label": "Slet {{address}}",
+      "delete_confirmation_message": "Vil du slette adressen? Eksisterende ordrer påvirkes ikke.",
+      "delete_confirmation_title": "Vil du slette adressen?",
+      "delete_confirmation_description": "Eksisterende ordrer påvirkes ikke.",
+      "edit_button": "Redigere",
+      "edit_button_accessibility_label": "Rediger {{address}}",
+      "edit_section_accessibility_label": "Rediger {{address}}",
+      "edit_modal_title": {
+        "default": "Rediger adresse",
+        "billing": "Rediger faktureringsadresse",
+        "shipping": "Rediger leveringsadresse"
+      },
+      "loading_accessibility_message": "Indlæser adresse",
+      "loading_addresses_accessibility_message": "Indlæser adresser",
+      "loading_billing_accessibility_message": "Indlæser faktureringsadresse",
+      "loading_finished_accessibility_message": "Ny side med adresser er indlæst",
+      "loading_shipping_accessibility_message": "Indlæser forsendelsesadresse",
+      "pagination": {
+        "load_more": "Indlæs mere",
+        "load_more_accessibility_label": "Indlæs flere adresser"
+      },
+      "save_new_address_accessibility_label": "Gem adresse",
+      "title": "Adresser"
+    },
+    "address_form": {
+      "auto_complete_close_accessibility_label": "Luk forslag",
+      "auto_complete_title": "Forslag",
+      "billing_address": "Brug som faktureringsadresse",
+      "cancel": "Afbestille",
+      "cancel_accessibility_label": "Annuller redigering af adresse {{address}}",
+      "creation_success_notification": "Adresse tilføjet",
+      "default_address": "Dette er min standardadresse",
+      "default_address_creation_success_notification": "Standardadresse tilføjet",
+      "default_address_update_success_notification": "Standardadressen er opdateret",
+      "loading_add_form_accessibility_message": "Indlæser ny adresseformular",
+      "loading_edit_form_accessibility_message": "Indlæser redigeringsadresseformular",
+      "loading_finished_accessibility_message": "Formularen er indlæst",
+      "save": "Gemme",
+      "save_accessibility_label": "Gem adresse {{address}}",
+      "section_title_accessibility_label": "Tilføj adresse",
+      "update_success_notification": "Adressen er opdateret"
+    },
+    "B2B": {
+      "account_information": {
+        "company_card_name_label": "Firmanavn",
+        "company_card_section_accessibility_label": "Selskab"
+      },
+      "locations": {
+        "contact_email": "E-mail",
+        "contact_list_title": "Mennesker",
+        "contact_name": "Navn",
+        "contact_permissions": "Tilladelser",
+        "contact_phone_number": "Telefonnummer",
+        "location_picker_label": "Stedets navn",
+        "net_payment_terms_description": "{{name}} : betalinger, der forfalder inden for {{numberOfDays}} dage",
+        "pagination": {
+          "load_more": "Indlæs mere",
+          "load_more_accessibility_label": "Indlæs flere lokationer"
+        },
+        "payment_details_title": "Betalingsoplysninger",
+        "payment_terms": "Betalingsbetingelser",
+        "permissions_label": "Dine tilladelser",
+        "permissions_title": "Tilladelser",
+        "section_title": "Beliggenhed",
+        "shipping_address_required": "Tilføj en leveringsadresse til denne placering for at begynde at afgive ordrer.",
+        "tax_details_title": "Skatteoplysninger",
+        "tax_id": "Skatte ID",
+        "tax_exemptions": "Skattefritagelser",
+        "multiple_tax_exemptions": "{{taxExemptionsCount}} mere",
+        "multiple_tax_exemptions_and": "og",
+        "tax_exemptions_modal_close": "Tæt",
+        "taxes_none": "Ingen",
+        "tax_exemptions_modal_button_accessibility_label": "Se alle skattefritagelser"
+      },
+      "location_selection": {
+        "continue_to_store": "Fortsæt med at opbevare",
+        "description": "Hvis du allerede har varer i din indkøbskurv, kan ændring af placeringer påvirke indkøbskurvpriser og -mængder.",
+        "list_accessibility_label": "Liste over steder",
+        "list_item_without_address_accessibility_label": "{{name}} : Ingen adresse",
+        "list_loading_accessibility_message": "Indlæser liste over steder",
+        "list_loading_address_accessibility_message": "Indlæser adresse for {{locationName}}",
+        "list_loading_finished_accessibility_message": "Listen over lokationer er indlæst",
+        "loading_store_accessibility_message": "Går i butik",
+        "no_location_title": "Kun personlige bestillinger",
+        "no_location_description": "Du har ikke længere tilladelse til at afgive ordrer for {{company}} . Du kan stadig afgive personlige bestillinger.",
+        "no_locations_found": "Ingen steder fundet",
+        "search": "Søg efter en placering",
+        "selection_cancel_button": "Afbestille",
+        "selection_confirmation_button": "Vælg placering",
+        "title": "Hvilken lokation køber du til?",
+        "clear_search": "Ryd søgning"
+      }
+    }
   }
 }
