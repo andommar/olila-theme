@@ -107,7 +107,14 @@
         "pick_up_locations": "Afhentningssteder",
         "pick_up_in_one_hour": "Normalt klar på 1 time",
         "pick_up_in_two_hours": "Normalt klar på 2 timer",
-        "pick_up_in_four_hours": "Normalt klar på 4 timer"
+        "pick_up_in_four_hours": "Normalt klar på 4 timer",
+        "pick_up_in_twenty_four_hours": "Normalt klar på 24 timer",
+        "pick_up_in_two_to_four_days": "Normalt klar på 2-4 dage",
+        "pick_up_in_five_or_more_days": "Normalt klar om 5+ dage",
+        "pick_up_in_zero_to_two_hours": "Klar til afhentning om 2 timer",
+        "pick_up_in_two_to_four_hours": "Klar til afhentning om 4 timer",
+        "pick_up_immediately": "Klar til afhentning nu",
+        "pick_up_next_day": "Klar til afhentning næste dag"
       },
       "order_summary": {
         "unit_price": {
@@ -135,7 +142,72 @@
           "due_on_fulfillment": "Samlet forfalder ved opfyldelse",
           "due_later_checkout_to_draft": "Samlet forfalder senere"
         },
-        "maximum_discount_code_limit_reached": "Du har nået det maksimale antal rabatkoder. Fjern en eksisterende kode for at bruge <strong style=\"text-transform:uppercase\">%{code}<\/strong> ."
+        "maximum_discount_code_limit_reached": "Du har nået det maksimale antal rabatkoder. Fjern en eksisterende kode for at bruge <strong style=\"text-transform:uppercase\">%{code}<\/strong> .",
+        "title": "Ordreoversigt",
+        "order_name_label": "Ordre %{navn}",
+        "shopping_cart_label": "Indkøbskurv",
+        "discount_title": "Rabat",
+        "discount_label": "Rabatkode",
+        "discount_placeholder": "Rabatkode",
+        "gift_card_title": "Gavekort",
+        "gift_card_label": "Gavekort",
+        "gift_card_placeholder": "Gavekort",
+        "gift_card_and_discount_title": "Gavekort eller rabatkode",
+        "gift_card_and_discount_label": "Gavekort eller rabatkode",
+        "gift_card_and_discount_placeholder": "Gavekort eller rabatkode",
+        "remove_gift_card_label": "Klart gavekort",
+        "remove_discount_label": "Fjern rabat",
+        "free_shipping_discount_label": "Gratis fragt",
+        "applied_free_shipping_discount_label": "Anvendt",
+        "apply_discount_button_label": "ansøge",
+        "applied_discount_message": "%{amount} rabat på den samlede ordrepris",
+        "discount_has_been_applied": "Rabat er anvendt",
+        "discount_has_been_removed": "Rabat er fjernet",
+        "gift_card_has_been_applied": "Gavekortet er anvendt",
+        "gift_card_has_been_removed": "Gavekortet er blevet fjernet",
+        "gift_card_subscriptions_notice": "Gavekort gælder kun for din første betaling",
+        "discount_already_applied": "Der er givet en rabat på denne ordre. Du kan ikke tilføje endnu en rabat.",
+        "cart_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}<\/strong> rabatkoden er ikke gyldig for varerne i din indkøbskurv",
+        "discount_requires_customer_notice": "Indtast dine forsendelsesoplysninger for at anvende <strong style=\"text-transform:uppercase\">%{code}<\/strong> rabatkoden",
+        "customer_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}<\/strong> rabatkode er ikke tilgængelig for dig lige nu",
+        "shipping_information_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}<\/strong> rabatkode er ikke tilgængelig for din leveringsadresse",
+        "customer_already_used_once_per_customer_discount_notice": "<strong style=\"text-transform:uppercase\">%{code}<\/strong> rabatkoden er allerede blevet brugt",
+        "shipping_label": "Forsendelse",
+        "pickup_label": "Saml op",
+        "no_pickup_location": "Din ordre er ikke tilgængelig til afhentning. Indtast en forsendelsesadresse.",
+        "calculating_shipping": "Beregner...",
+        "shipping_default_value": "Beregnes ved næste trin",
+        "shipping_pending_message": "Ikke tilgængelig endnu",
+        "shipping_policy_link": "Forsendelsesomkostninger",
+        "taxes_label": "Skatter",
+        "estimated_taxes_label": "Anslåede skatter",
+        "information_estimated_taxes_label": "Skatter (anslået)",
+        "estimated_taxes_finalization_tooltip_content": "Den endelige skat og det samlede beløb vil blive bekræftet via e-mail eller sms, efter du har afgivet din ordre.",
+        "order_total_label": "Ordre i alt",
+        "total_label": "i alt",
+        "total_outstanding_label": "Beløb at betale",
+        "partial_total_label": "i alt",
+        "free_total_label": "Ledig",
+        "paid_label": "Betalt",
+        "payment_due_label": "Betalingsfrist",
+        "vat_label_html": "Inklusive %{amount} i skat",
+        "discount_and_gift_card_savings_notice": "Efter %{discount_amount} i rabatter og %{gift_card_amount} i gavekort",
+        "discount_savings_notice": "Efter %{discount_amount} i rabatter",
+        "gift_card_savings_notice": "Efter %{gift_card_amount} i gavekort",
+        "cost_table_title": "Omkostningsoversigt",
+        "description_label": "Beskrivelse",
+        "price_label": "Pris",
+        "quantity_label": "Antal",
+        "product_change_label": "Lave om",
+        "product_image_label": "Produktbillede",
+        "scroll_order_summary": "Rul for flere varer",
+        "expand_order_summary": "Vis ordreoversigt",
+        "collapse_order_summary": "Skjul ordreoversigt",
+        "original_price": "Original pris",
+        "sale_price": "Udsalgspris",
+        "total_updated_label": "Opdateret samlet pris:",
+        "order_total_updated_label": "Opdateret i alt",
+        "total_already_paid_label": "Allerede betalt"
       },
       "shipping": {
         "title": "Forsendelse",
@@ -355,6 +427,43 @@
           "order_completed_html": "Ordre gennemført med %{shopify_pay}",
           "learn_more_label": "Lær mere om Shop Pay"
         }
+      },
+      "customer_account": {
+        "not_user_label": "Ikke %{first_name}?",
+        "have_an_account_label": "har du allerede en bruger?",
+        "sign_in_link_label": "Log på",
+        "sign_out_link_label": "Log ud",
+        "save_my_information_label": "Gem disse oplysninger til næste gang"
+      },
+      "stock": {
+        "page_title": "Lagerproblemer",
+        "title": "Udsolgt",
+        "items_unavailable_notice": "Nogle varer er ikke længere tilgængelige. Din indkøbskurv er blevet opdateret.",
+        "product_column_header": "Produkter",
+        "quantity_column_header": "Antal",
+        "price_column_header": "Pris",
+        "removed_from_cart_notice": "Fjernet fra indkøbskurven",
+        "sold_out_label": "Udsolgt",
+        "reduced_label": "Reduceret",
+        "reduced_with_quantity_label": "Kun %{quantity_available} tilbage",
+        "remove_from_cart_button_label": "Fjern fra vognen",
+        "continue_shopping_button_label": "Blive ved",
+        "go_back_to_cart_button_label": "Gå tilbage til min kurv"
+      },
+      "contextual_availability": {
+        "title": {
+          "one": "Produktet er ikke tilgængeligt",
+          "other": "Produkter ikke tilgængelige"
+        },
+        "products_not_available": {
+          "one": "Dette produkt vil blive fjernet fra din indkøbskurv, fordi det ikke er tilgængeligt i dit land\/område.",
+          "other": "Disse produkter vil blive fjernet fra din indkøbskurv, fordi de ikke er tilgængelige i dit land\/område."
+        },
+        "all_products_in_cart_unavailable": {
+          "one": "Dette produkt er ikke tilgængeligt i dit land\/område.",
+          "other": "Disse produkter er ikke tilgængelige i dit land\/område."
+        },
+        "unavailable_label": "Ikke tilgængelig"
       }
     }
   },
