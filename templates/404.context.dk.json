@@ -1,0 +1,15 @@
+{
+  "parent": "404.json",
+  "context": {
+    "market": "dk"
+  },
+  "sections": {
+    "template": {
+      "settings": {
+        "title": "404",
+        "subtext_title": "Siden blev ikke fundet",
+        "button_label": "Tilbage til forsiden"
+      }
+    }
+  }
+}

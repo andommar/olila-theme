@@ -1,0 +1,13 @@
+{
+  "parent": "list-collections.json",
+  "context": {
+    "market": "dk"
+  },
+  "sections": {
+    "template": {
+      "settings": {
+        "title": "Kategori Oversigt"
+      }
+    }
+  }
+}

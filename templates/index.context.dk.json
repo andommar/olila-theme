@@ -1,0 +1,32 @@
+{
+  "parent": "index.json",
+  "context": {
+    "market": "dk"
+  },
+  "sections": {
+    "categories": {
+      "blocks": {
+        "c3b1d83b-28fe-4bf0-9b84-66fb36bbc5e4": {
+          "settings": {
+            "title": "Kategori"
+          }
+        },
+        "4f15b2eb-2b7f-4ceb-84ff-49b1b8fae0b5": {
+          "settings": {
+            "title": "Kategori"
+          }
+        },
+        "f8aa0f76-bb10-4127-becb-69233117d6e7": {
+          "settings": {
+            "title": "Kategori"
+          }
+        },
+        "83476fcd-0037-476c-9476-ae7589404ab5": {
+          "settings": {
+            "title": "Kategori"
+          }
+        }
+      }
+    }
+  }
+}
